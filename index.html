@@ -30,8 +30,7 @@ body{background:#f7f4ef;color:#2c2c3a;font-family:var(--sans);line-height:1.6;po
 
 /* ─── GRAIN TEXTURE OVERLAY ─── */
 body::before{
-  content:'';
-  position:fixed;inset:0;
+  content:'';position:fixed;inset:0;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events:none;z-index:0;opacity:.3;
 }
@@ -51,18 +50,9 @@ aside{
   display:flex;flex-direction:column;
   border-right:3px solid var(--gold);
 }
-.sidebar-head{
-  padding:28px 24px 20px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-.sidebar-logo{
-  font-family:var(--serif);font-size:20px;font-weight:900;
-  color:var(--gold-light);line-height:1.2;
-}
-.sidebar-sub{
-  font-size:11px;color:rgba(255,255,255,.4);
-  font-family:var(--mono);margin-top:6px;letter-spacing:.5px
-}
+.sidebar-head{padding:28px 24px 20px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sidebar-logo{font-family:var(--serif);font-size:20px;font-weight:900;color:var(--gold-light);line-height:1.2}
+.sidebar-sub{font-size:11px;color:rgba(255,255,255,.4);font-family:var(--mono);margin-top:6px;letter-spacing:.5px}
 .sidebar-tender{
   display:inline-block;margin-top:10px;
   background:rgba(201,137,58,.2);border:1px solid rgba(201,137,58,.4);
@@ -82,17 +72,8 @@ aside{
   border-left:3px solid transparent;
   transition:all .2s;text-decoration:none
 }
-.nav-item:hover{
-  background:rgba(255,255,255,.05);
-  color:var(--gold-light);
-  border-left-color:var(--gold)
-}
-.nav-item.active{
-  background:rgba(201,137,58,.12);
-  color:var(--gold-light);
-  border-left-color:var(--gold);
-  font-weight:600
-}
+.nav-item:hover{background:rgba(255,255,255,.05);color:var(--gold-light);border-left-color:var(--gold)}
+.nav-item.active{background:rgba(201,137,58,.12);color:var(--gold-light);border-left-color:var(--gold);font-weight:600}
 .nav-item .step-dot{
   width:22px;height:22px;border-radius:50%;
   display:flex;align-items:center;justify-content:center;
@@ -100,104 +81,41 @@ aside{
   background:rgba(255,255,255,.08);font-family:var(--mono)
 }
 .nav-item.active .step-dot{background:var(--gold);color:var(--ink)}
-.nav-item.done .step-dot{background:var(--teal);color:#fff}
 
 /* ─── MAIN CONTENT ─── */
 main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
 
 /* ─── HERO ─── */
-.hero{
-  background:var(--ink);color:var(--paper);
-  padding:80px 64px;position:relative;overflow:hidden
-}
+.hero{background:var(--ink);color:var(--paper);padding:80px 64px;position:relative;overflow:hidden}
 .hero::after{
-  content:'TBA';
-  position:absolute;right:-20px;top:-40px;
+  content:'TBA';position:absolute;right:-20px;top:-40px;
   font-family:var(--serif);font-size:240px;font-weight:900;
   color:rgba(255,255,255,.03);line-height:1;pointer-events:none
 }
-.hero-eyebrow{
-  font-family:var(--mono);font-size:11px;letter-spacing:3px;
-  text-transform:uppercase;color:var(--gold);margin-bottom:16px
-}
-.hero-title{
-  font-family:var(--serif);font-size:48px;font-weight:900;
-  line-height:1.1;max-width:560px;margin-bottom:20px
-}
+.hero-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.hero-title{font-family:var(--serif);font-size:48px;font-weight:900;line-height:1.1;max-width:560px;margin-bottom:20px}
 .hero-title span{color:var(--gold-light)}
-.hero-desc{
-  font-size:15px;color:rgba(255,255,255,.6);max-width:500px;
-  line-height:1.8;margin-bottom:32px
-}
+.hero-desc{font-size:15px;color:rgba(255,255,255,.75);max-width:500px;line-height:1.8;margin-bottom:32px}
 .hero-tags{display:flex;flex-wrap:wrap;gap:10px}
 .hero-tag{
   background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
-  padding:6px 14px;border-radius:2px;font-size:12px;font-family:var(--mono);
-  color:rgba(255,255,255,.7)
+  padding:6px 14px;border-radius:2px;font-size:12px;font-family:var(--mono);color:rgba(255,255,255,.8)
 }
 .hero-stats{
   display:grid;grid-template-columns:repeat(4,1fr);
   gap:1px;background:rgba(255,255,255,.1);
   border-top:1px solid rgba(255,255,255,.1);margin-top:48px
 }
-.hero-stat{
-  background:var(--ink);padding:24px 20px
-}
+.hero-stat{background:var(--ink);padding:24px 20px}
 .hero-stat .n{font-family:var(--serif);font-size:32px;color:var(--gold-light)}
-.hero-stat .l{font-size:11px;color:rgba(255,255,255,.4);font-family:var(--mono);margin-top:4px}
+.hero-stat .l{font-size:11px;color:rgba(255,255,255,.5);font-family:var(--mono);margin-top:4px}
 
 /* ─── SECTIONS ─── */
 .section{padding:64px 64px;border-bottom:1px solid var(--border);max-width:900px;background:#f7f4ef}
 .section:last-child{border-bottom:none}
-
-.section-eyebrow{
-  font-family:var(--mono);font-size:10px;letter-spacing:3px;
-  text-transform:uppercase;color:#c9893a;margin-bottom:10px;font-weight:600
-}
-.section-title{
-  font-family:var(--serif);font-size:32px;font-weight:700;
-  line-height:1.2;margin-bottom:8px;color:#1a1a2e
-}
-.section-lead{
-  font-size:15px;color:#4a4a5a;line-height:1.8;
-  margin-bottom:32px;max-width:640px
-}
-
-/* ─── STEP CARDS ─── */
-.step-card{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:2px;margin-bottom:24px;overflow:hidden;
-  box-shadow:0 2px 12px rgba(0,0,0,.05);
-  transition:box-shadow .2s
-}
-.step-card:hover{box-shadow:0 4px 24px rgba(0,0,0,.1)}
-.step-card-header{
-  display:grid;grid-template-columns:auto 1fr auto;
-  align-items:start;gap:20px;padding:24px 28px;cursor:pointer;
-  background:var(--white);
-}
-.step-number{
-  font-family:var(--serif);font-size:48px;font-weight:900;
-  color:var(--cream);line-height:1;min-width:52px;text-align:center;
-  user-select:none
-}
-.step-meta{}
-.step-field{
-  font-family:var(--mono);font-size:11px;letter-spacing:1px;
-  text-transform:uppercase;color:var(--gold);margin-bottom:4px
-}
-.step-title{font-size:18px;font-weight:600;margin-bottom:4px}
-.step-short{font-size:13px;color:#4a4a5a;line-height:1.6}
-.step-clause-badge{
-  flex-shrink:0;background:var(--navy);color:var(--paper);
-  font-family:var(--mono);font-size:10px;padding:4px 10px;
-  border-radius:2px;white-space:nowrap;letter-spacing:.5px
-}
-.step-body{
-  display:none;padding:0 28px 28px;
-  border-top:1px solid var(--border);margin-top:0
-}
-.step-body.open{display:block}
+.section-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#c9893a;margin-bottom:10px;font-weight:600}
+.section-title{font-family:var(--serif);font-size:32px;font-weight:700;line-height:1.2;margin-bottom:8px;color:#1a1a2e}
+.section-lead{font-size:15px;color:#4a4a5a;line-height:1.8;margin-bottom:32px;max-width:640px}
 
 /* ─── RATIONALE BLOCK ─── */
 .rationale{
@@ -210,216 +128,186 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
   font-family:var(--serif);font-size:80px;font-weight:900;
   color:rgba(255,255,255,.04);pointer-events:none
 }
-.rationale-label{
-  font-family:var(--mono);font-size:10px;letter-spacing:2px;
-  color:var(--gold);text-transform:uppercase;margin-bottom:10px
-}
+.rationale-label{font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:10px;font-weight:600}
 .rationale p{font-size:14px;line-height:1.8;color:#dde4f0}
+.rationale strong{color:#f0c87a}
 
 /* ─── CLAUSE CITATION ─── */
 .clause-cite{
-  display:flex;gap:16px;align-items:start;
+  display:flex;flex-direction:row;gap:0;align-items:stretch;
   background:var(--cream);border-left:4px solid var(--gold);
-  padding:16px 20px;border-radius:0 2px 2px 0;margin:16px 0
+  border-radius:0 2px 2px 0;margin:16px 0;overflow:hidden
 }
 .clause-num{
-  font-family:var(--mono);font-size:20px;font-weight:500;
-  color:var(--gold);white-space:nowrap;min-width:70px
+  font-family:var(--mono);font-size:12px;font-weight:700;
+  color:#ffffff;background:var(--navy);
+  white-space:nowrap;flex-shrink:0;
+  padding:14px 16px;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;min-width:90px;line-height:1.5
 }
-.clause-text{font-size:13px;line-height:1.8;color:#2c2c3a}
+.clause-text{font-size:13px;line-height:1.8;color:#2c2c3a;flex:1;min-width:0;padding:14px 18px}
 .clause-text strong{color:#1e3a5f}
+.clause-text em{color:#555;font-style:italic}
 
 /* ─── HOW TO EVALUATE ─── */
 .how-to{margin:20px 0}
 .how-to-title{
-  font-size:13px;font-weight:600;text-transform:uppercase;
-  letter-spacing:1px;color:var(--navy);margin-bottom:12px;
-  font-family:var(--mono)
+  font-size:12px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1.5px;color:var(--navy);margin-bottom:14px;
+  font-family:var(--mono);padding-bottom:8px;border-bottom:2px solid var(--border)
 }
-.step-list{counter-reset:step;list-style:none;padding-left:0}
+.step-list{counter-reset:step;list-style:none;padding-left:0;margin:0}
 .step-list li{
   counter-increment:step;
   display:flex;flex-direction:row;
-  gap:14px;align-items:flex-start;margin-bottom:14px;
-  font-size:14px;color:#2c2c3a;line-height:1.7
+  gap:14px;align-items:flex-start;
+  margin-bottom:16px;font-size:14px;color:#2c2c3a;line-height:1.7
 }
 .step-list li::before{
   content:counter(step);
-  min-width:28px;width:28px;height:28px;
+  min-width:30px;width:30px;height:30px;
   background:var(--navy);color:#fff;
-  border-radius:50%;display:flex;align-items:center;
-  justify-content:center;font-family:var(--mono);font-size:11px;
-  font-weight:600;flex-shrink:0;margin-top:2px
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12px;font-weight:700;
+  flex-shrink:0;margin-top:1px
 }
 
 /* ─── PITFALL / TIP ─── */
-.pitfall{
-  background:rgba(185,76,46,.08);border-left:4px solid var(--rust);
-  padding:14px 18px;border-radius:0 2px 2px 0;margin:12px 0
-}
-.pitfall-head{
-  font-size:11px;font-weight:700;text-transform:uppercase;
-  letter-spacing:1px;color:#b94c2e;margin-bottom:6px;
-  font-family:var(--mono)
-}
-.pitfall p, .pitfall ul{font-size:13px;line-height:1.8;color:#2c2c3a}
-.pitfall ul{padding-left:16px}
+.pitfall{background:#fdf3f0;border-left:4px solid var(--rust);padding:16px 20px;border-radius:0 4px 4px 0;margin:16px 0}
+.pitfall-head{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#b94c2e;margin-bottom:8px;font-family:var(--mono)}
+.pitfall p{font-size:13px;line-height:1.8;color:#3a2020;margin-bottom:6px}
+.pitfall ul{padding-left:20px;margin:0}
+.pitfall ul li{font-size:13px;line-height:1.8;color:#3a2020;margin-bottom:6px}
 
-.tip{
-  background:rgba(29,122,116,.08);border-left:4px solid var(--teal);
-  padding:14px 18px;border-radius:0 2px 2px 0;margin:12px 0
-}
-.tip-head{
-  font-size:11px;font-weight:700;text-transform:uppercase;
-  letter-spacing:1px;color:#1d7a74;margin-bottom:6px;
-  font-family:var(--mono)
-}
-.tip p, .tip ul{font-size:13px;line-height:1.8;color:#2c2c3a}
-.tip ul{padding-left:16px}
+.tip{background:#f0f7f6;border-left:4px solid var(--teal);padding:16px 20px;border-radius:0 4px 4px 0;margin:16px 0}
+.tip-head{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#1d7a74;margin-bottom:8px;font-family:var(--mono)}
+.tip p{font-size:13px;line-height:1.8;color:#1a3330;margin-bottom:6px}
+.tip ul{padding-left:20px;margin:0}
+.tip ul li{font-size:13px;line-height:1.8;color:#1a3330;margin-bottom:6px}
 
 /* ─── DATA TABLE ─── */
-.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px;table-layout:fixed}
 .data-table th{
-  background:var(--ink);color:var(--paper);
+  background:var(--ink);color:#ffffff;
   padding:10px 14px;text-align:left;
-  font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase
+  font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;
+  word-wrap:break-word
 }
 .data-table td{
   padding:10px 14px;border-bottom:1px solid var(--border);
-  vertical-align:top;line-height:1.6;color:#2c2c3a
+  vertical-align:top;line-height:1.7;color:#2c2c3a;word-wrap:break-word
 }
 .data-table tr:last-child td{border-bottom:none}
 .data-table tr:hover td{background:var(--cream)}
-.data-table td:first-child{font-family:var(--mono);font-size:12px;color:var(--gold);font-weight:500}
-
-/* ─── VALUE PILL ─── */
-.val-pill{
-  display:inline-block;background:var(--ink);color:var(--gold-light);
-  font-family:var(--mono);font-size:12px;padding:2px 10px;border-radius:2px;
-  font-weight:500
-}
-
-/* ─── QUIZ ─── */
-#quiz-section{background:#1a1a2e;color:#f0ece4}
-#quiz-section .section{max-width:100%;background:#1a1a2e}
-#quiz-section .section-title{color:#f0ece4}
-#quiz-section .section-lead{color:rgba(240,236,228,.65)}
-.q-card{
-  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
-  border-radius:2px;padding:28px;margin-bottom:20px
-}
-.q-number{
-  font-family:var(--mono);font-size:10px;letter-spacing:2px;
-  color:var(--gold);text-transform:uppercase;margin-bottom:12px
-}
-.q-text{font-size:17px;font-weight:500;line-height:1.6;margin-bottom:20px;color:#f0ece4}
-.q-opts{display:flex;flex-direction:column;gap:10px}
-.q-opt{
-  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
-  padding:12px 18px;border-radius:2px;cursor:pointer;
-  font-size:14px;color:rgba(255,255,255,.8);text-align:left;
-  transition:all .2s;font-family:var(--sans)
-}
-.q-opt:hover{border-color:var(--gold);color:var(--gold-light);background:rgba(201,137,58,.1)}
-.q-opt.correct{background:rgba(29,122,116,.2);border-color:var(--teal);color:#5eead4}
-.q-opt.wrong{background:rgba(185,76,46,.2);border-color:var(--rust);color:#fca5a5}
-.q-opt:disabled{cursor:default}
-.q-explanation{
-  margin-top:16px;padding:14px 18px;background:rgba(255,255,255,.07);
-  border-left:3px solid var(--gold);font-size:13px;color:#dde4f0;
-  line-height:1.8;display:none
-}
-.q-explanation.show{display:block}
-.quiz-nav{display:flex;gap:12px;margin-top:20px;align-items:center}
-.btn{
-  padding:10px 22px;font-family:var(--sans);font-size:13px;font-weight:600;
-  border:none;border-radius:2px;cursor:pointer;transition:all .2s
-}
-.btn-gold{background:var(--gold);color:#1a1a2e}
-.btn-gold:hover{background:var(--gold-light)}
-.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.8)}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
-.quiz-score{
-  font-family:var(--mono);font-size:13px;color:rgba(255,255,255,.5);margin-left:auto
-}
-.quiz-progress{
-  background:rgba(255,255,255,.12);height:3px;border-radius:99px;
-  margin-bottom:28px;overflow:hidden
-}
-.quiz-progress-fill{
-  background:linear-gradient(90deg,var(--gold),var(--rust));
-  height:100%;border-radius:99px;transition:width .4s
-}
-.final-score{
-  text-align:center;padding:60px 20px
-}
-.final-score .big{
-  font-family:var(--serif);font-size:96px;font-weight:900;color:var(--gold-light)
-}
-.final-score .msg{font-size:18px;color:rgba(240,236,228,.7);margin-top:12px}
+.data-table td:first-child{font-family:var(--mono);font-size:12px;color:var(--gold);font-weight:600}
 
 /* ─── FLOWCHART ─── */
 .flow{display:flex;flex-direction:column;gap:0;margin:24px 0}
-.flow-step{
-  display:flex;flex-direction:row;gap:0;align-items:flex-start;
-}
-.flow-left{
-  display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:48px;
-}
+.flow-step{display:flex;flex-direction:row;gap:0;align-items:flex-start}
+.flow-left{display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:50px}
 .flow-circle{
   width:40px;height:40px;border-radius:50%;
   background:var(--navy);color:#fff;
   display:flex;align-items:center;justify-content:center;
-  font-family:var(--mono);font-size:13px;font-weight:600;flex-shrink:0
+  font-family:var(--mono);font-size:13px;font-weight:700;flex-shrink:0
 }
-.flow-line{width:2px;flex:1;min-height:16px;background:var(--border);margin:0 auto}
+.flow-line{width:2px;flex:1;min-height:20px;background:var(--border);margin:0 auto}
 .flow-content{
   background:#ffffff;border:1px solid var(--border);
-  border-radius:2px;padding:16px 20px;margin:0 0 12px 16px;
-  box-shadow:0 1px 4px rgba(0,0,0,.05);flex:1;min-width:0;word-wrap:break-word
+  border-radius:4px;padding:16px 20px;margin:0 0 14px 14px;
+  box-shadow:0 1px 4px rgba(0,0,0,.05);flex:1;min-width:0
 }
-.flow-content .fc-title{font-weight:700;font-size:14px;margin-bottom:4px;color:#1a1a2e}
-.flow-content .fc-sub{font-size:13px;color:#3a3a4a;line-height:1.7}
-.flow-content .fc-clause{
-  font-family:var(--mono);font-size:10px;color:var(--gold);
-  text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-weight:600
-}
+.flow-content .fc-title{font-weight:700;font-size:14px;margin-bottom:6px;color:#1a1a2e}
+.flow-content .fc-sub{font-size:13px;color:#3a3a4a;line-height:1.7;word-wrap:break-word}
+.flow-content .fc-clause{font-family:var(--mono);font-size:10px;color:var(--gold);text-transform:uppercase;letter-spacing:1px;margin-top:10px;font-weight:700}
 
 /* ─── EXCEL COLUMN MAP ─── */
 .col-map{
-  display:grid;grid-template-columns:160px 1fr;gap:1px;
-  background:var(--border);border:1px solid var(--border);
-  border-radius:2px;overflow:hidden;margin:20px 0
+  display:table;width:100%;border-collapse:collapse;
+  border:1px solid var(--border);border-radius:2px;
+  overflow:hidden;margin:20px 0;table-layout:fixed
 }
 .col-header{
-  background:var(--ink);color:#ffffff;
-  padding:10px 14px;font-family:var(--mono);font-size:10px;
-  letter-spacing:1px;text-transform:uppercase
+  display:table-row;background:var(--ink)
 }
+.col-header span{
+  display:table-cell;color:#ffffff;
+  padding:10px 14px;font-family:var(--mono);font-size:10px;
+  letter-spacing:1px;text-transform:uppercase;font-weight:600
+}
+.col-header span:first-child{width:200px}
+.col-row{display:table-row}
+.col-row:nth-child(even) .col-field{background:#e8e3d8}
+.col-row:nth-child(even) .col-explain{background:#fafaf8}
 .col-field{
-  background:var(--cream);font-family:var(--mono);font-size:12px;
+  display:table-cell;background:var(--cream);font-family:var(--mono);font-size:12px;
   padding:12px 14px;color:var(--navy);font-weight:600;
-  border-bottom:1px solid var(--border);word-wrap:break-word;min-width:0
+  border-bottom:1px solid var(--border);
+  vertical-align:top;width:200px;word-wrap:break-word
 }
 .col-explain{
-  background:#ffffff;font-size:13px;padding:12px 14px;
+  display:table-cell;background:#ffffff;font-size:13px;padding:12px 16px;
   line-height:1.7;color:#2c2c3a;border-bottom:1px solid var(--border);
-  word-wrap:break-word;min-width:0
+  vertical-align:top;word-wrap:break-word
 }
+
+/* ─── QUIZ ─── */
+#quiz-section{background:#1a1a2e;color:#f0ece4}
+#quiz-section .section{max-width:100%;background:#1a1a2e;border-bottom:none}
+#quiz-section .section-title{color:#f0ece4}
+#quiz-section .section-lead{color:rgba(240,236,228,.7)}
+.q-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:28px;margin-bottom:20px}
+.q-number{font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;font-weight:600}
+.q-text{font-size:16px;font-weight:500;line-height:1.7;margin-bottom:20px;color:#f0ece4}
+.q-opts{display:flex;flex-direction:column;gap:10px}
+.q-opt{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.15);
+  padding:12px 18px;border-radius:3px;cursor:pointer;
+  font-size:14px;color:#e8e0d4;text-align:left;
+  transition:all .2s;font-family:var(--sans);line-height:1.6;word-wrap:break-word
+}
+.q-opt:hover{border-color:var(--gold);color:var(--gold-light);background:rgba(201,137,58,.1)}
+.q-opt.correct{background:rgba(29,122,116,.25);border-color:#2dd4bf;color:#ccfbf1}
+.q-opt.wrong{background:rgba(185,76,46,.25);border-color:#f87171;color:#fee2e2}
+.q-opt:disabled{cursor:default}
+.q-explanation{
+  margin-top:16px;padding:16px 18px;background:rgba(255,255,255,.07);
+  border-left:3px solid var(--gold);font-size:13px;color:#dde4f0;
+  line-height:1.8;display:none;border-radius:0 3px 3px 0
+}
+.q-explanation.show{display:block}
+.quiz-nav{display:flex;gap:12px;margin-top:20px;align-items:center;flex-wrap:wrap}
+.btn{padding:10px 22px;font-family:var(--sans);font-size:13px;font-weight:600;border:none;border-radius:2px;cursor:pointer;transition:all .2s}
+.btn-gold{background:var(--gold);color:#1a1a2e}
+.btn-gold:hover{background:var(--gold-light)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.85)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
+.quiz-score{font-family:var(--mono);font-size:13px;color:rgba(255,255,255,.5);margin-left:auto}
+.quiz-progress{background:rgba(255,255,255,.12);height:4px;border-radius:99px;margin-bottom:28px;overflow:hidden}
+.quiz-progress-fill{background:linear-gradient(90deg,var(--gold),var(--rust));height:100%;border-radius:99px;transition:width .4s}
+.final-score{text-align:center;padding:60px 20px}
+.final-score .big{font-family:var(--serif);font-size:96px;font-weight:900;color:var(--gold-light)}
+.final-score .msg{font-size:18px;color:rgba(240,236,228,.75);margin-top:12px;line-height:1.6}
 
 /* ─── RESPONSIVE ─── */
 @media(max-width:900px){
   aside{transform:translateX(-100%);transition:transform .3s}
   aside.open{transform:translateX(0)}
   main{margin-left:0}
-  .section{padding:40px 24px}
-  .hero{padding:48px 24px}
+  .section{padding:32px 20px}
+  .hero{padding:40px 20px}
   .hero-stats{grid-template-columns:repeat(2,1fr)}
-  .hero-title{font-size:32px}
+  .hero-title{font-size:28px}
+  .col-map{display:block}
+  .col-header,.col-row{display:block}
+  .col-header span,.col-field,.col-explain{display:block;width:100%}
+  .col-field{border-bottom:none;padding-bottom:4px}
   #menu-toggle{display:flex}
 }
 #menu-toggle{
-  display:none;position:fixed;top:16px;left:16px;z-index:200;
+  display:none;position:fixed;top:16px;left:16px;z-index:300;
   width:40px;height:40px;background:var(--ink);border:none;
   border-radius:4px;cursor:pointer;align-items:center;justify-content:center;
   flex-direction:column;gap:5px
@@ -625,15 +513,19 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
   <p class="section-lead">The header is not just administrative — each field determines how the evaluation will be conducted for every bidder below it.</p>
 
   <div class="col-map">
-    <div class="col-header">TBA Field</div><div class="col-header">What to fill &amp; Why</div>
-    <div class="col-field">Tender No.</div><div class="col-explain">Write <strong>9030C26A47</strong>. Ties the TBA document to the specific tender and prevents mix-ups in multi-tender offices.</div>
-    <div class="col-field">ARC / Non-ARC</div><div class="col-explain">Mark <strong>Non-ARC (One-Time)</strong> as per NIT Cl. 21. This determines whether annualisation of executed values is required. For One-Time jobs, annualisation is not required.</div>
-    <div class="col-field">Name of Work</div><div class="col-explain">Copy verbatim from NIT Cl. 3: "Mechanical Agency for DHDS M&I Shutdown Jobs at Gujarat Refinery." Verbatim copy avoids scope ambiguity.</div>
-    <div class="col-field">TBA (Initial/Final)</div><div class="col-explain">Mark "Initial" if first evaluation, "Final" if after query replies. The authority level for approval may differ — Final TBA typically needs higher sign-off.</div>
-    <div class="col-field">Total No. of Bids</div><div class="col-explain">Count all bids received on the portal. This is the denominator for reporting — e.g., "3 out of 5 bids are technically acceptable."</div>
-    <div class="col-field">Bid Submission End Date (Original as per NIT)</div><div class="col-explain">Critical: use the <strong>original</strong> bid submission date even if the date was extended. The qualifying 7-year experience period is calculated backward from this original date per NIT Cl. 11.2 Note 2.</div>
-    <div class="col-field">Qualifying Period: From … to …</div><div class="col-explain">Auto-calculated as 7 years back from the original bid submission end date. A WO with completion date falling outside this window is ineligible regardless of its value.</div>
+  <div class="col-header"><span>TBA Field</span><span>What to Fill &amp; Why</span></div>
+  <div class="col-row"><div class="col-field">Tender No.</div><div class="col-explain">Write <strong>9030C26A47</strong>. Ties the TBA document to the specific tender and prevents mix-ups in multi-tender offices.</div></div>
+  <div class="col-row"><div class="col-field">ARC / Non-ARC</div><div class="col-explain">Mark <strong>Non-ARC (One-Time)</strong> as per NIT Cl. 21. This determines whether annualisation of executed values is required. For One-Time jobs, annualisation is not required.</div></div>
+  <div class="col-row"><div class="col-field">Name of Work</div><div class="col-explain">Copy verbatim from NIT Cl. 3: "Mechanical Agency for DHDS M&amp;I Shutdown Jobs at Gujarat Refinery." Verbatim copy avoids scope ambiguity.</div></div>
+  <div class="col-row"><div class="col-field">TBA (Initial/Final)</div><div class="col-explain">Mark &ldquo;Initial&rdquo; if first evaluation, &ldquo;Final&rdquo; if after query replies. The authority level for approval may differ &mdash; Final TBA typically needs higher sign-off.</div></div>
+  <div class="col-row"><div class="col-field">Total No. of Bids</div><div class="col-explain">Count all bids received on the portal. This is the denominator for reporting &mdash; e.g., &ldquo;3 out of 5 bids are technically acceptable.&rdquo;</div></div>
+  <div class="col-row"><div class="col-field">Bid Submission End Date<br/>(Original as per NIT)</div><div class="col-explain">Critical: use the <strong>original</strong> bid submission date even if the date was extended. The qualifying 7-year experience period is calculated backward from this original date per NIT Cl. 11.2 Note 2.</div></div>
+  <div class="col-row"><div class="col-field">Qualifying Period:<br/>From &hellip; to &hellip;</div><div class="col-explain">Auto-calculated as 7 years back from the original bid submission end date. A WO with completion date falling outside this window is ineligible regardless of its value.</div></div>
   </div>
+
+
+  <div class="rationale">
+    <div class="rationale-label">Why the original bid submission date matters</div>
 
   <div class="rationale">
     <div class="rationale-label">Why the original bid submission date matters</div>
@@ -641,7 +533,7 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
   </div>
 
   <div class="clause-cite">
-    <div class="clause-num">Cl. 11.2<br/>Note 2</div>
+    <div class="clause-num">Cl. 11.2 Note 2</div>
     <div class="clause-text"><strong>In case of extended bid submission date, original bid submission date shall be considered</strong> for computing the qualifying period for experience criteria.</div>
   </div>
 </section>
@@ -653,14 +545,18 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
   <p class="section-lead">Before evaluating any bidder, the evaluator must record the benchmark values from the NIT. This ensures the standard is set before names are filled in — preventing post-hoc rationalisation.</p>
 
   <div class="col-map">
-    <div class="col-header">TBA Field</div><div class="col-header">NIT Source &amp; Value</div>
-    <div class="col-field">(i) Similar Nature Work</div><div class="col-explain">Copy the exact definition from NIT Cl. 11.3: "Turnaround or Shutdown jobs including maintenance of heat exchangers, Columns/Vessels, Furnace, hot job works including CS, SS or AS piping in any petroleum refinery / Petrochemical Plants / Hydrocarbon Fertilizers / Hydrocarbon Industry."</div>
-    <div class="col-field">(ii) SWO Value — 1 job</div><div class="col-explain"><strong>₹ 547.26 Lacs</strong> (incl. GST). Source: NIT Cl. 11.2 Option 1.</div>
-    <div class="col-field">(ii) SWO Value — 2 jobs</div><div class="col-explain"><strong>₹ 437.81 Lacs each</strong> (incl. GST). Source: NIT Cl. 11.2 Option 2.</div>
-    <div class="col-field">(ii) SWO Value — 3 jobs</div><div class="col-explain"><strong>₹ 328.36 Lacs each</strong> (incl. GST). Source: NIT Cl. 11.2 Option 3.</div>
-    <div class="col-field">(iii) Additional Tech PQC</div><div class="col-explain"><strong>Not Applicable</strong> as per NIT Cl. 12. Write "N/A" so there is no ambiguity in what was checked.</div>
-    <div class="col-field">(iv) Qualifying Period</div><div class="col-explain">7 years back from original bid submission end date. Calculate and enter the From and To dates explicitly.</div>
+  <div class="col-header"><span>TBA Field</span><span>NIT Source &amp; Value</span></div>
+  <div class="col-row"><div class="col-field">(i) Similar Nature Work</div><div class="col-explain">Copy the exact definition from NIT Cl. 11.3: &ldquo;Turnaround or Shutdown jobs including maintenance of heat exchangers, Columns/Vessels, Furnace, hot job works including CS, SS or AS piping in any petroleum refinery / Petrochemical Plants / Hydrocarbon Fertilizers / Hydrocarbon Industry.&rdquo;</div></div>
+  <div class="col-row"><div class="col-field">(ii) SWO &mdash; 1 job</div><div class="col-explain"><strong>&rsaquo; 547.26 Lacs</strong> (incl. GST). Source: NIT Cl. 11.2 Option 1.</div></div>
+  <div class="col-row"><div class="col-field">(ii) SWO &mdash; 2 jobs</div><div class="col-explain"><strong>&rsaquo; 437.81 Lacs each</strong> (incl. GST). Source: NIT Cl. 11.2 Option 2.</div></div>
+  <div class="col-row"><div class="col-field">(ii) SWO &mdash; 3 jobs</div><div class="col-explain"><strong>&rsaquo; 328.36 Lacs each</strong> (incl. GST). Source: NIT Cl. 11.2 Option 3.</div></div>
+  <div class="col-row"><div class="col-field">(iii) Additional Tech PQC</div><div class="col-explain"><strong>Not Applicable</strong> as per NIT Cl. 12. Write &ldquo;N/A&rdquo; so there is no ambiguity in what was checked.</div></div>
+  <div class="col-row"><div class="col-field">(iv) Qualifying Period</div><div class="col-explain">7 years back from original bid submission end date. Calculate and enter the From and To dates explicitly.</div></div>
   </div>
+
+
+  <div class="rationale">
+    <div class="rationale-label">Why fill criteria BEFORE bidder names</div>
 
   <div class="rationale">
     <div class="rationale-label">Why fill criteria BEFORE bidder names</div>
@@ -695,7 +591,7 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
   </div>
 
   <div class="clause-cite">
-    <div class="clause-num">Cl. 24.iii<br/>B(b)(1)</div>
+    <div class="clause-num">Cl. 24.iii B(b)(1)</div>
     <div class="clause-text">For fulfilling experience criteria, valid proof includes: <strong>Purchase/Work Order copy with Schedule of Rates/Scope of Works</strong> AND Completion Certificate by end client.</div>
   </div>
 
@@ -762,7 +658,7 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
   </div>
 
   <div class="clause-cite">
-    <div class="clause-num">Cl. 24.iii<br/>B(b)(2)</div>
+    <div class="clause-num">Cl. 24.iii B(b)(2)</div>
     <div class="clause-text"><strong>Completion certificate by end client</strong> with <em>executed value</em>, date of completion of the job and reference work order number — is required as valid proof of experience.</div>
   </div>
 
@@ -786,7 +682,7 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
   </div>
 
   <div class="clause-cite">
-    <div class="clause-num">Cl. 24.iii<br/>B(k)</div>
+    <div class="clause-num">Cl. 24.iii B(k)</div>
     <div class="clause-text">The CC shall separately indicate the <strong>Service Tax / GST amount</strong> included in the value, OR a separate certificate from the client mentioning the tax amount shall be submitted.</div>
   </div>
 </section>
@@ -803,7 +699,7 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
   </div>
 
   <div class="clause-cite">
-    <div class="clause-num">Cl. 11.2<br/>Note 3 &amp;<br/>TBA Note 3</div>
+    <div class="clause-num">Cl. 11.2 Note 3 &amp; TBA Note 3</div>
     <div class="clause-text"><strong>The Executed Value of completed work submitted by the bidder shall be considered during evaluation for experience criteria of PQC.</strong></div>
   </div>
 
@@ -886,7 +782,7 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
   </div>
 
   <div class="clause-cite">
-    <div class="clause-num">Cl. 24.iii<br/>B(b)(3)</div>
+    <div class="clause-num">Cl. 24.iii B(b)(3)</div>
     <div class="clause-text">In case of sub-contract works, the bidder must submit a <strong>certificate from the end user / Owner / Consultant</strong> stating that the main contractor has intimated them about the engagement of sub-contracting OR that the bidder was allowed/permitted as a sub-contractor.</div>
   </div>
 
@@ -930,7 +826,7 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
   </div>
 
   <div class="clause-cite">
-    <div class="clause-num">Cl. 24.v<br/>B(c)</div>
+    <div class="clause-num">Cl. 24.v B(c)</div>
     <div class="clause-text">Bid is liable for rejection if the bidder <strong>stipulates his own conditions and refuses to withdraw them.</strong></div>
   </div>
 
@@ -1006,16 +902,15 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
   <p class="section-lead">The last column crystallises all preceding evaluation into a single decision: Accepted, Rejected, or Query. This drives everything that happens next.</p>
 
   <div class="col-map">
-    <div class="col-header">Decision</div><div class="col-header">When to Use &amp; What Happens Next</div>
-    <div class="col-field">ACCEPTED</div><div class="col-explain">Bidder meets all PQC criteria: ATO, SWO (under one of the 3 options), similar nature confirmed, CC with executed value verified, no outstanding deviations, all mandatory documents submitted. Price bid of this bidder will be opened.</div>
-    <div class="col-field">REJECTED</div><div class="col-explain">Bidder fails to meet one or more mandatory PQC criteria and deficiency is not rectifiable by query/clarification. Price bid will NOT be opened. Must document reason in Remarks column with clause reference.</div>
-    <div class="col-field">QUERY</div><div class="col-explain">Bidder's documents are incomplete or ambiguous — but the deficiency could potentially be resolved by seeking clarification. Issue the query, re-evaluate on Final TBA after replies. Move to Accepted or Rejected on Final TBA.</div>
+  <div class="col-header"><span>Decision</span><span>When to Use &amp; What Happens Next</span></div>
+  <div class="col-row"><div class="col-field">ACCEPTED</div><div class="col-explain">Bidder meets all PQC criteria: ATO, SWO (under one of the 3 options), similar nature confirmed, CC with executed value verified, no outstanding deviations, all mandatory documents submitted. Price bid of this bidder will be opened.</div></div>
+  <div class="col-row"><div class="col-field">REJECTED</div><div class="col-explain">Bidder fails to meet one or more mandatory PQC criteria and deficiency is not rectifiable by query/clarification. Price bid will NOT be opened. Must document reason in Remarks column with clause reference.</div></div>
+  <div class="col-row"><div class="col-field">QUERY</div><div class="col-explain">Bidder's documents are incomplete or ambiguous &mdash; but the deficiency could potentially be resolved by seeking clarification. Issue the query, re-evaluate on Final TBA after replies. Move to Accepted or Rejected on Final TBA.</div></div>
   </div>
 
-  <div class="rationale">
-    <div class="rationale-label">Counting Technically Acceptable Bids</div>
-    <p>The total count of "Accepted" recommendations is recorded in the TBA Header as "Nos. of Technically Acceptable Bids." This is critical: if the count is below a threshold (typically 3 for competitive tendering), the tender may need to be retendered or exceptional approval sought from competent authority before proceeding to price bid opening.</p>
-  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 22</div>
 
   <div class="clause-cite">
     <div class="clause-num">Cl. 22</div>
