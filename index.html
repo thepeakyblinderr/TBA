@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TBA Training Module · IOCL Tender 9030C26A47</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a2e;
+  --paper:#f7f4ef;
+  --cream:#ede9e0;
+  --gold:#c9893a;
+  --gold-light:#f0c87a;
+  --rust:#b94c2e;
+  --teal:#1d7a74;
+  --navy:#1e3a5f;
+  --text:#2c2c3a;
+  --muted:#7a7a8a;
+  --border:#d4cfc5;
+  --white:#ffffff;
+  --sans:'DM Sans',sans-serif;
+  --serif:'Playfair Display',serif;
+  --mono:'DM Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#f7f4ef;color:#2c2c3a;font-family:var(--sans);line-height:1.6;position:relative}
+
+/* ─── GRAIN TEXTURE OVERLAY ─── */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:.3;
+}
+
+/* ─── PROGRESS BAR ─── */
+#progress-bar{
+  position:fixed;top:0;left:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--rust));
+  transition:width .3s;z-index:500;width:0%
+}
+
+/* ─── SIDEBAR ─── */
+aside{
+  position:fixed;left:0;top:0;bottom:0;width:280px;
+  background:#1a1a2e;color:#f7f4ef;
+  overflow-y:auto;z-index:200;
+  display:flex;flex-direction:column;
+  border-right:3px solid var(--gold);
+}
+.sidebar-head{
+  padding:28px 24px 20px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.sidebar-logo{
+  font-family:var(--serif);font-size:20px;font-weight:900;
+  color:var(--gold-light);line-height:1.2;
+}
+.sidebar-sub{
+  font-size:11px;color:rgba(255,255,255,.4);
+  font-family:var(--mono);margin-top:6px;letter-spacing:.5px
+}
+.sidebar-tender{
+  display:inline-block;margin-top:10px;
+  background:rgba(201,137,58,.2);border:1px solid rgba(201,137,58,.4);
+  color:var(--gold-light);font-family:var(--mono);font-size:10px;
+  padding:3px 10px;border-radius:3px;letter-spacing:.5px
+}
+.nav-section{padding:16px 0 0}
+.nav-label{
+  font-size:9px;font-family:var(--mono);letter-spacing:2px;
+  text-transform:uppercase;color:rgba(255,255,255,.3);
+  padding:0 24px;margin-bottom:8px
+}
+.nav-item{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 24px;cursor:pointer;
+  font-size:13px;color:rgba(255,255,255,.6);
+  border-left:3px solid transparent;
+  transition:all .2s;text-decoration:none
+}
+.nav-item:hover{
+  background:rgba(255,255,255,.05);
+  color:var(--gold-light);
+  border-left-color:var(--gold)
+}
+.nav-item.active{
+  background:rgba(201,137,58,.12);
+  color:var(--gold-light);
+  border-left-color:var(--gold);
+  font-weight:600
+}
+.nav-item .step-dot{
+  width:22px;height:22px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:600;flex-shrink:0;
+  background:rgba(255,255,255,.08);font-family:var(--mono)
+}
+.nav-item.active .step-dot{background:var(--gold);color:var(--ink)}
+.nav-item.done .step-dot{background:var(--teal);color:#fff}
+
+/* ─── MAIN CONTENT ─── */
+main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
+
+/* ─── HERO ─── */
+.hero{
+  background:var(--ink);color:var(--paper);
+  padding:80px 64px;position:relative;overflow:hidden
+}
+.hero::after{
+  content:'TBA';
+  position:absolute;right:-20px;top:-40px;
+  font-family:var(--serif);font-size:240px;font-weight:900;
+  color:rgba(255,255,255,.03);line-height:1;pointer-events:none
+}
+.hero-eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:3px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:16px
+}
+.hero-title{
+  font-family:var(--serif);font-size:48px;font-weight:900;
+  line-height:1.1;max-width:560px;margin-bottom:20px
+}
+.hero-title span{color:var(--gold-light)}
+.hero-desc{
+  font-size:15px;color:rgba(255,255,255,.6);max-width:500px;
+  line-height:1.8;margin-bottom:32px
+}
+.hero-tags{display:flex;flex-wrap:wrap;gap:10px}
+.hero-tag{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  padding:6px 14px;border-radius:2px;font-size:12px;font-family:var(--mono);
+  color:rgba(255,255,255,.7)
+}
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:1px;background:rgba(255,255,255,.1);
+  border-top:1px solid rgba(255,255,255,.1);margin-top:48px
+}
+.hero-stat{
+  background:var(--ink);padding:24px 20px
+}
+.hero-stat .n{font-family:var(--serif);font-size:32px;color:var(--gold-light)}
+.hero-stat .l{font-size:11px;color:rgba(255,255,255,.4);font-family:var(--mono);margin-top:4px}
+
+/* ─── SECTIONS ─── */
+.section{padding:64px 64px;border-bottom:1px solid var(--border);max-width:900px;background:#f7f4ef}
+.section:last-child{border-bottom:none}
+
+.section-eyebrow{
+  font-family:var(--mono);font-size:10px;letter-spacing:3px;
+  text-transform:uppercase;color:#c9893a;margin-bottom:10px;font-weight:600
+}
+.section-title{
+  font-family:var(--serif);font-size:32px;font-weight:700;
+  line-height:1.2;margin-bottom:8px;color:#1a1a2e
+}
+.section-lead{
+  font-size:15px;color:#4a4a5a;line-height:1.8;
+  margin-bottom:32px;max-width:640px
+}
+
+/* ─── STEP CARDS ─── */
+.step-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:2px;margin-bottom:24px;overflow:hidden;
+  box-shadow:0 2px 12px rgba(0,0,0,.05);
+  transition:box-shadow .2s
+}
+.step-card:hover{box-shadow:0 4px 24px rgba(0,0,0,.1)}
+.step-card-header{
+  display:grid;grid-template-columns:auto 1fr auto;
+  align-items:start;gap:20px;padding:24px 28px;cursor:pointer;
+  background:var(--white);
+}
+.step-number{
+  font-family:var(--serif);font-size:48px;font-weight:900;
+  color:var(--cream);line-height:1;min-width:52px;text-align:center;
+  user-select:none
+}
+.step-meta{}
+.step-field{
+  font-family:var(--mono);font-size:11px;letter-spacing:1px;
+  text-transform:uppercase;color:var(--gold);margin-bottom:4px
+}
+.step-title{font-size:18px;font-weight:600;margin-bottom:4px}
+.step-short{font-size:13px;color:#4a4a5a;line-height:1.6}
+.step-clause-badge{
+  flex-shrink:0;background:var(--navy);color:var(--paper);
+  font-family:var(--mono);font-size:10px;padding:4px 10px;
+  border-radius:2px;white-space:nowrap;letter-spacing:.5px
+}
+.step-body{
+  display:none;padding:0 28px 28px;
+  border-top:1px solid var(--border);margin-top:0
+}
+.step-body.open{display:block}
+
+/* ─── RATIONALE BLOCK ─── */
+.rationale{
+  background:linear-gradient(135deg,#1e3a5f 0%,#1a1a2e 100%);
+  color:var(--paper);border-radius:2px;padding:24px 28px;
+  margin:20px 0;position:relative;overflow:hidden
+}
+.rationale::before{
+  content:'WHY';position:absolute;right:16px;top:-10px;
+  font-family:var(--serif);font-size:80px;font-weight:900;
+  color:rgba(255,255,255,.04);pointer-events:none
+}
+.rationale-label{
+  font-family:var(--mono);font-size:10px;letter-spacing:2px;
+  color:var(--gold);text-transform:uppercase;margin-bottom:10px
+}
+.rationale p{font-size:14px;line-height:1.8;color:#dde4f0}
+
+/* ─── CLAUSE CITATION ─── */
+.clause-cite{
+  display:flex;gap:16px;align-items:start;
+  background:var(--cream);border-left:4px solid var(--gold);
+  padding:16px 20px;border-radius:0 2px 2px 0;margin:16px 0
+}
+.clause-num{
+  font-family:var(--mono);font-size:20px;font-weight:500;
+  color:var(--gold);white-space:nowrap;min-width:70px
+}
+.clause-text{font-size:13px;line-height:1.8;color:#2c2c3a}
+.clause-text strong{color:#1e3a5f}
+
+/* ─── HOW TO EVALUATE ─── */
+.how-to{margin:20px 0}
+.how-to-title{
+  font-size:13px;font-weight:600;text-transform:uppercase;
+  letter-spacing:1px;color:var(--navy);margin-bottom:12px;
+  font-family:var(--mono)
+}
+.step-list{counter-reset:step;list-style:none;padding-left:0}
+.step-list li{
+  counter-increment:step;
+  display:flex;flex-direction:row;
+  gap:14px;align-items:flex-start;margin-bottom:14px;
+  font-size:14px;color:#2c2c3a;line-height:1.7
+}
+.step-list li::before{
+  content:counter(step);
+  min-width:28px;width:28px;height:28px;
+  background:var(--navy);color:#fff;
+  border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-family:var(--mono);font-size:11px;
+  font-weight:600;flex-shrink:0;margin-top:2px
+}
+
+/* ─── PITFALL / TIP ─── */
+.pitfall{
+  background:rgba(185,76,46,.08);border-left:4px solid var(--rust);
+  padding:14px 18px;border-radius:0 2px 2px 0;margin:12px 0
+}
+.pitfall-head{
+  font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1px;color:#b94c2e;margin-bottom:6px;
+  font-family:var(--mono)
+}
+.pitfall p, .pitfall ul{font-size:13px;line-height:1.8;color:#2c2c3a}
+.pitfall ul{padding-left:16px}
+
+.tip{
+  background:rgba(29,122,116,.08);border-left:4px solid var(--teal);
+  padding:14px 18px;border-radius:0 2px 2px 0;margin:12px 0
+}
+.tip-head{
+  font-size:11px;font-weight:700;text-transform:uppercase;
+  letter-spacing:1px;color:#1d7a74;margin-bottom:6px;
+  font-family:var(--mono)
+}
+.tip p, .tip ul{font-size:13px;line-height:1.8;color:#2c2c3a}
+.tip ul{padding-left:16px}
+
+/* ─── DATA TABLE ─── */
+.data-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px}
+.data-table th{
+  background:var(--ink);color:var(--paper);
+  padding:10px 14px;text-align:left;
+  font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase
+}
+.data-table td{
+  padding:10px 14px;border-bottom:1px solid var(--border);
+  vertical-align:top;line-height:1.6;color:#2c2c3a
+}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr:hover td{background:var(--cream)}
+.data-table td:first-child{font-family:var(--mono);font-size:12px;color:var(--gold);font-weight:500}
+
+/* ─── VALUE PILL ─── */
+.val-pill{
+  display:inline-block;background:var(--ink);color:var(--gold-light);
+  font-family:var(--mono);font-size:12px;padding:2px 10px;border-radius:2px;
+  font-weight:500
+}
+
+/* ─── QUIZ ─── */
+#quiz-section{background:#1a1a2e;color:#f0ece4}
+#quiz-section .section{max-width:100%;background:#1a1a2e}
+#quiz-section .section-title{color:#f0ece4}
+#quiz-section .section-lead{color:rgba(240,236,228,.65)}
+.q-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:2px;padding:28px;margin-bottom:20px
+}
+.q-number{
+  font-family:var(--mono);font-size:10px;letter-spacing:2px;
+  color:var(--gold);text-transform:uppercase;margin-bottom:12px
+}
+.q-text{font-size:17px;font-weight:500;line-height:1.6;margin-bottom:20px;color:#f0ece4}
+.q-opts{display:flex;flex-direction:column;gap:10px}
+.q-opt{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  padding:12px 18px;border-radius:2px;cursor:pointer;
+  font-size:14px;color:rgba(255,255,255,.8);text-align:left;
+  transition:all .2s;font-family:var(--sans)
+}
+.q-opt:hover{border-color:var(--gold);color:var(--gold-light);background:rgba(201,137,58,.1)}
+.q-opt.correct{background:rgba(29,122,116,.2);border-color:var(--teal);color:#5eead4}
+.q-opt.wrong{background:rgba(185,76,46,.2);border-color:var(--rust);color:#fca5a5}
+.q-opt:disabled{cursor:default}
+.q-explanation{
+  margin-top:16px;padding:14px 18px;background:rgba(255,255,255,.07);
+  border-left:3px solid var(--gold);font-size:13px;color:#dde4f0;
+  line-height:1.8;display:none
+}
+.q-explanation.show{display:block}
+.quiz-nav{display:flex;gap:12px;margin-top:20px;align-items:center}
+.btn{
+  padding:10px 22px;font-family:var(--sans);font-size:13px;font-weight:600;
+  border:none;border-radius:2px;cursor:pointer;transition:all .2s
+}
+.btn-gold{background:var(--gold);color:#1a1a2e}
+.btn-gold:hover{background:var(--gold-light)}
+.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.8)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold-light)}
+.quiz-score{
+  font-family:var(--mono);font-size:13px;color:rgba(255,255,255,.5);margin-left:auto
+}
+.quiz-progress{
+  background:rgba(255,255,255,.12);height:3px;border-radius:99px;
+  margin-bottom:28px;overflow:hidden
+}
+.quiz-progress-fill{
+  background:linear-gradient(90deg,var(--gold),var(--rust));
+  height:100%;border-radius:99px;transition:width .4s
+}
+.final-score{
+  text-align:center;padding:60px 20px
+}
+.final-score .big{
+  font-family:var(--serif);font-size:96px;font-weight:900;color:var(--gold-light)
+}
+.final-score .msg{font-size:18px;color:rgba(240,236,228,.7);margin-top:12px}
+
+/* ─── FLOWCHART ─── */
+.flow{display:flex;flex-direction:column;gap:0;margin:24px 0}
+.flow-step{
+  display:flex;flex-direction:row;gap:0;align-items:flex-start;
+}
+.flow-left{
+  display:flex;flex-direction:column;align-items:center;flex-shrink:0;width:48px;
+}
+.flow-circle{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--navy);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:13px;font-weight:600;flex-shrink:0
+}
+.flow-line{width:2px;flex:1;min-height:16px;background:var(--border);margin:0 auto}
+.flow-content{
+  background:#ffffff;border:1px solid var(--border);
+  border-radius:2px;padding:16px 20px;margin:0 0 12px 16px;
+  box-shadow:0 1px 4px rgba(0,0,0,.05);flex:1;min-width:0;word-wrap:break-word
+}
+.flow-content .fc-title{font-weight:700;font-size:14px;margin-bottom:4px;color:#1a1a2e}
+.flow-content .fc-sub{font-size:13px;color:#3a3a4a;line-height:1.7}
+.flow-content .fc-clause{
+  font-family:var(--mono);font-size:10px;color:var(--gold);
+  text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-weight:600
+}
+
+/* ─── EXCEL COLUMN MAP ─── */
+.col-map{
+  display:grid;grid-template-columns:160px 1fr;gap:1px;
+  background:var(--border);border:1px solid var(--border);
+  border-radius:2px;overflow:hidden;margin:20px 0
+}
+.col-header{
+  background:var(--ink);color:#ffffff;
+  padding:10px 14px;font-family:var(--mono);font-size:10px;
+  letter-spacing:1px;text-transform:uppercase
+}
+.col-field{
+  background:var(--cream);font-family:var(--mono);font-size:12px;
+  padding:12px 14px;color:var(--navy);font-weight:600;
+  border-bottom:1px solid var(--border);word-wrap:break-word;min-width:0
+}
+.col-explain{
+  background:#ffffff;font-size:13px;padding:12px 14px;
+  line-height:1.7;color:#2c2c3a;border-bottom:1px solid var(--border);
+  word-wrap:break-word;min-width:0
+}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  aside{transform:translateX(-100%);transition:transform .3s}
+  aside.open{transform:translateX(0)}
+  main{margin-left:0}
+  .section{padding:40px 24px}
+  .hero{padding:48px 24px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .hero-title{font-size:32px}
+  #menu-toggle{display:flex}
+}
+#menu-toggle{
+  display:none;position:fixed;top:16px;left:16px;z-index:200;
+  width:40px;height:40px;background:var(--ink);border:none;
+  border-radius:4px;cursor:pointer;align-items:center;justify-content:center;
+  flex-direction:column;gap:5px
+}
+#menu-toggle span{width:20px;height:2px;background:var(--gold);border-radius:2px}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp .5s ease both}
+.delay-1{animation-delay:.1s}.delay-2{animation-delay:.2s}.delay-3{animation-delay:.3s}
+</style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="menu-toggle" onclick="document.querySelector('aside').classList.toggle('open')">
+  <span></span><span></span><span></span>
+</button>
+
+<!-- ═══ SIDEBAR ═══ -->
+<aside id="sidebar">
+  <div class="sidebar-head">
+    <div class="sidebar-logo">TBA Training<br/>Module</div>
+    <div class="sidebar-sub">IOCL GUJARAT REFINERY</div>
+    <div class="sidebar-tender">9030C26A47</div>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Overview</div>
+    <a class="nav-item active" href="#hero"><div class="step-dot">⌂</div>Introduction</a>
+    <a class="nav-item" href="#what-is-tba"><div class="step-dot">①</div>What is TBA?</a>
+    <a class="nav-item" href="#evaluation-flow"><div class="step-dot">②</div>Evaluation Flow</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">TBA Steps — Excel Columns</div>
+    <a class="nav-item" href="#step-header"><div class="step-dot">A</div>Header Details</a>
+    <a class="nav-item" href="#step-pqc-criteria"><div class="step-dot">B</div>PQC Criteria Setup</a>
+    <a class="nav-item" href="#step-wo"><div class="step-dot">C</div>Work Order Details</a>
+    <a class="nav-item" href="#step-similar"><div class="step-dot">D</div>Similar Nature Check</a>
+    <a class="nav-item" href="#step-cc"><div class="step-dot">E</div>Completion Certificate</a>
+    <a class="nav-item" href="#step-executed-value"><div class="step-dot">F</div>Executed Value</a>
+    <a class="nav-item" href="#step-annual"><div class="step-dot">G</div>Annualised Value</a>
+    <a class="nav-item" href="#step-subcontract"><div class="step-dot">H</div>Sub-Contract Check</a>
+    <a class="nav-item" href="#step-deviations"><div class="step-dot">I</div>Deviations</a>
+    <a class="nav-item" href="#step-addl-pqc"><div class="step-dot">J</div>Additional PQC</a>
+    <a class="nav-item" href="#step-remarks"><div class="step-dot">K</div>Remarks & Queries</a>
+    <a class="nav-item" href="#step-recommendation"><div class="step-dot">L</div>Final Recommendation</a>
+  </div>
+
+  <div class="nav-section">
+    <div class="nav-label">Reference</div>
+    <a class="nav-item" href="#nit-quick-ref"><div class="step-dot">★</div>NIT Quick Reference</a>
+    <a class="nav-item" href="#quiz-section"><div class="step-dot">✎</div>Knowledge Quiz</a>
+  </div>
+</aside>
+
+<!-- ═══ MAIN ═══ -->
+<main>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-eyebrow">Training Module · Technical Bid Analysis</div>
+  <h1 class="hero-title fade-up">How to Evaluate a <span>Technical Bid</span> — Step by Step</h1>
+  <p class="hero-desc fade-up delay-1">A comprehensive guide linking every column in the TBA format sheet to the specific NIT clause that requires it, with the rationale behind each evaluation decision.</p>
+  <div class="hero-tags fade-up delay-2">
+    <span class="hero-tag">Tender 9030C26A47</span>
+    <span class="hero-tag">DHDS M&I Shutdown</span>
+    <span class="hero-tag">Gujarat Refinery</span>
+    <span class="hero-tag">Mechanical Agency</span>
+    <span class="hero-tag">Open Tender · GeM</span>
+  </div>
+  <div class="hero-stats fade-up delay-3">
+    <div class="hero-stat"><div class="n">12</div><div class="l">Evaluation Steps</div></div>
+    <div class="hero-stat"><div class="n">18</div><div class="l">TBA Columns Mapped</div></div>
+    <div class="hero-stat"><div class="n">15+</div><div class="l">NIT Clauses Covered</div></div>
+    <div class="hero-stat"><div class="n">10</div><div class="l">Quiz Questions</div></div>
+  </div>
+</section>
+
+<!-- WHAT IS TBA -->
+<section id="what-is-tba" class="section">
+  <div class="section-eyebrow">Foundation</div>
+  <h2 class="section-title">What is a Technical Bid Analysis?</h2>
+  <p class="section-lead">The TBA is the formal document through which an evaluator certifies whether each bidder meets the Pre-Qualification Criteria (PQC) set out in the NIT — before their price bid is even opened.</p>
+
+  <div class="rationale">
+    <div class="rationale-label">Core Purpose</div>
+    <p>IOCL conducts a <strong>Two-Bid System</strong> (NIT Cl. 2b). In Bid Part-I (Techno-Commercial), the evaluator checks eligibility. Only bidders who clear the TBA have their Price Bid (Part-II/BOQ) opened. This protects IOCL from awarding technically unqualified contractors on the basis of low price alone.</p>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 2b</div>
+    <div class="clause-text">Type of Bid: <strong>Under Two Bid System</strong>. Techno-commercial bid is evaluated first; priced bid opening date will be available on tendering portal only after techno-commercial clearance.</div>
+  </div>
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 24.i</div>
+    <div class="clause-text"><strong>Provisions/Conditions stipulated in NIT supersede all sections of the Tender document.</strong> Therefore the TBA evaluator must always apply the NIT, not any general impression.</div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-head">💡 Key Principle</div>
+    <p>The TBA format (Excel sheet) is the structured tool to document and justify each decision. Every column exists because a NIT clause demands that data point. Nothing in the format is bureaucratic — it is legally mandated evidence.</p>
+  </div>
+</section>
+
+<!-- EVALUATION FLOW -->
+<section id="evaluation-flow" class="section">
+  <div class="section-eyebrow">Process Map</div>
+  <h2 class="section-title">The Complete Evaluation Flow</h2>
+  <p class="section-lead">Before filling any column, understand the sequence of decisions. Each stage gates the next.</p>
+
+  <div class="flow">
+    <div class="flow-step">
+      <div class="flow-left"><div class="flow-circle">1</div><div class="flow-line"></div></div>
+      <div class="flow-content">
+        <div class="fc-title">Set Up TBA Header</div>
+        <div class="fc-sub">Record Tender No., Name of Work, Bid Submission End Date (original), ARC/Non-ARC type, TBA type (Initial or Final). This determines the qualifying period and whether annualisation is needed.</div>
+        <div class="fc-clause">NIT Cl. 4 · Cl. 11 · TBA Row 1–6</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-left"><div class="flow-circle">2</div><div class="flow-line"></div></div>
+      <div class="flow-content">
+        <div class="fc-title">Record PQC Criteria</div>
+        <div class="fc-sub">Fill in the Similar Nature definition, value slabs for 1/2/3 works, ATO requirement, and qualifying period dates (Last 7 years from original bid submission date).</div>
+        <div class="fc-clause">NIT Cl. 11.1 · 11.2 · 11.3</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-left"><div class="flow-circle">3</div><div class="flow-line"></div></div>
+      <div class="flow-content">
+        <div class="fc-title">Enter Bidder Work Order Details</div>
+        <div class="fc-sub">For each bidder, record all submitted WOs: WO number, date, job description, owner/end-user, WO value (incl. GST).</div>
+        <div class="fc-clause">NIT Cl. 11.2 · Cl. 24.iii.B</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-left"><div class="flow-circle">4</div><div class="flow-line"></div></div>
+      <div class="flow-content">
+        <div class="fc-title">Check Similar Nature</div>
+        <div class="fc-sub">Does the WO match the defined similar nature? (Shutdown/TAR + HE/Column/Vessel/Furnace/piping in petroleum/petrochemical/hydrocarbon industry). Mark Yes/No.</div>
+        <div class="fc-clause">NIT Cl. 11.3</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-left"><div class="flow-circle">5</div><div class="flow-line"></div></div>
+      <div class="flow-content">
+        <div class="fc-title">Verify Completion Certificate</div>
+        <div class="fc-sub">Is a completion certificate submitted by the end-client? Does it show executed value, date of completion, and reference WO number? Check for sub-contract approval if applicable.</div>
+        <div class="fc-clause">NIT Cl. 24.iii.B(b)</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-left"><div class="flow-circle">6</div><div class="flow-line"></div></div>
+      <div class="flow-content">
+        <div class="fc-title">Enter Executed Value &amp; Check PQC Slab</div>
+        <div class="fc-sub">Use executed value (NOT WO value) from the completion certificate. Compare against PQC slabs (1 job ≥ ₹547.26L / 2 jobs ≥ ₹437.81L each / 3 jobs ≥ ₹328.36L each). All values inclusive of GST.</div>
+        <div class="fc-clause">NIT Cl. 11.2 · Cl. 24.iii.B(j)</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-left"><div class="flow-circle">7</div><div class="flow-line"></div></div>
+      <div class="flow-content">
+        <div class="fc-title">Calculate Annualised Value (if ARC)</div>
+        <div class="fc-sub">This tender is One-Time (Non-ARC), so annualisation is NOT required. However, the column must still be filled — enter the same as executed value, or mark N/A.</div>
+        <div class="fc-clause">NIT Cl. 21 · TBA General Note 4 &amp; 6</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-left"><div class="flow-circle">8</div><div class="flow-line"></div></div>
+      <div class="flow-content">
+        <div class="fc-title">Check Deviations, Additional PQC &amp; Other Requirements</div>
+        <div class="fc-sub">Note any deviations to GCC/SCC (none permitted). Check Additional Tech PQC (N/A here). Verify ATO documents, PF code, ESI, PAN, GSTIN etc.</div>
+        <div class="fc-clause">NIT Cl. 12 · Cl. 23.e · Cl. 14</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-left"><div class="flow-circle">9</div><div class="flow-line"></div></div>
+      <div class="flow-content">
+        <div class="fc-title">Record Remarks &amp; Raise Queries</div>
+        <div class="fc-sub">Document any queries to be raised, deficiencies found, or reasons for rejection. This column is the formal record — must be specific, clause-referenced, and unambiguous.</div>
+        <div class="fc-clause">NIT Cl. 24.vii · Cl. 24.xviii</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-left"><div class="flow-circle">10</div><div class="flow-line"></div></div>
+      <div class="flow-content">
+        <div class="fc-title">Give Final Recommendation</div>
+        <div class="fc-sub">Mark each bidder as Accepted / Rejected / Query. Count technically acceptable bids. Obtain Prepared By / Checked By / Approved By (DGM-C) signatures as per IWPM Cl. 4.3.1 + R&R Cl. 20(viii).</div>
+        <div class="fc-clause">TBA Header · NIT Cl. 22</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STEP-BY-STEP EVALUATION ═══ -->
+
+<!-- STEP A: HEADER -->
+<section id="step-header" class="section">
+  <div class="section-eyebrow">Step A · TBA Format Rows 1–6</div>
+  <h2 class="section-title">Filling the TBA Header</h2>
+  <p class="section-lead">The header is not just administrative — each field determines how the evaluation will be conducted for every bidder below it.</p>
+
+  <div class="col-map">
+    <div class="col-header">TBA Field</div><div class="col-header">What to fill &amp; Why</div>
+    <div class="col-field">Tender No.</div><div class="col-explain">Write <strong>9030C26A47</strong>. Ties the TBA document to the specific tender and prevents mix-ups in multi-tender offices.</div>
+    <div class="col-field">ARC / Non-ARC</div><div class="col-explain">Mark <strong>Non-ARC (One-Time)</strong> as per NIT Cl. 21. This determines whether annualisation of executed values is required. For One-Time jobs, annualisation is not required.</div>
+    <div class="col-field">Name of Work</div><div class="col-explain">Copy verbatim from NIT Cl. 3: "Mechanical Agency for DHDS M&I Shutdown Jobs at Gujarat Refinery." Verbatim copy avoids scope ambiguity.</div>
+    <div class="col-field">TBA (Initial/Final)</div><div class="col-explain">Mark "Initial" if first evaluation, "Final" if after query replies. The authority level for approval may differ — Final TBA typically needs higher sign-off.</div>
+    <div class="col-field">Total No. of Bids</div><div class="col-explain">Count all bids received on the portal. This is the denominator for reporting — e.g., "3 out of 5 bids are technically acceptable."</div>
+    <div class="col-field">Bid Submission End Date (Original as per NIT)</div><div class="col-explain">Critical: use the <strong>original</strong> bid submission date even if the date was extended. The qualifying 7-year experience period is calculated backward from this original date per NIT Cl. 11.2 Note 2.</div>
+    <div class="col-field">Qualifying Period: From … to …</div><div class="col-explain">Auto-calculated as 7 years back from the original bid submission end date. A WO with completion date falling outside this window is ineligible regardless of its value.</div>
+  </div>
+
+  <div class="rationale">
+    <div class="rationale-label">Why the original bid submission date matters</div>
+    <p>NIT Cl. 11.2 Note 2 explicitly states: <em>"In case of extended bid submission date, original bid submission date shall be considered."</em> This is to prevent bidders from strategically using extensions to bring in older work orders that were otherwise outside the 7-year window. Using the original date keeps the playing field level for all participants.</p>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 11.2<br/>Note 2</div>
+    <div class="clause-text"><strong>In case of extended bid submission date, original bid submission date shall be considered</strong> for computing the qualifying period for experience criteria.</div>
+  </div>
+</section>
+
+<!-- STEP B: PQC CRITERIA -->
+<section id="step-pqc-criteria" class="section">
+  <div class="section-eyebrow">Step B · TBA Format Rows 7–13</div>
+  <h2 class="section-title">Recording the PQC Criteria</h2>
+  <p class="section-lead">Before evaluating any bidder, the evaluator must record the benchmark values from the NIT. This ensures the standard is set before names are filled in — preventing post-hoc rationalisation.</p>
+
+  <div class="col-map">
+    <div class="col-header">TBA Field</div><div class="col-header">NIT Source &amp; Value</div>
+    <div class="col-field">(i) Similar Nature Work</div><div class="col-explain">Copy the exact definition from NIT Cl. 11.3: "Turnaround or Shutdown jobs including maintenance of heat exchangers, Columns/Vessels, Furnace, hot job works including CS, SS or AS piping in any petroleum refinery / Petrochemical Plants / Hydrocarbon Fertilizers / Hydrocarbon Industry."</div>
+    <div class="col-field">(ii) SWO Value — 1 job</div><div class="col-explain"><strong>₹ 547.26 Lacs</strong> (incl. GST). Source: NIT Cl. 11.2 Option 1.</div>
+    <div class="col-field">(ii) SWO Value — 2 jobs</div><div class="col-explain"><strong>₹ 437.81 Lacs each</strong> (incl. GST). Source: NIT Cl. 11.2 Option 2.</div>
+    <div class="col-field">(ii) SWO Value — 3 jobs</div><div class="col-explain"><strong>₹ 328.36 Lacs each</strong> (incl. GST). Source: NIT Cl. 11.2 Option 3.</div>
+    <div class="col-field">(iii) Additional Tech PQC</div><div class="col-explain"><strong>Not Applicable</strong> as per NIT Cl. 12. Write "N/A" so there is no ambiguity in what was checked.</div>
+    <div class="col-field">(iv) Qualifying Period</div><div class="col-explain">7 years back from original bid submission end date. Calculate and enter the From and To dates explicitly.</div>
+  </div>
+
+  <div class="rationale">
+    <div class="rationale-label">Why fill criteria BEFORE bidder names</div>
+    <p>This sequence is intentional and important. Recording the PQC benchmark first creates an objective standard that was pre-determined — not one that was adjusted after seeing what bidders submitted. This protects the integrity of the evaluation and is critical if the TBA is later scrutinized by vigilance, auditors, or a court.</p>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-head">⚠️ Common Mistake</div>
+    <p>Evaluators sometimes record only one slab (e.g., "1 job ≥ ₹547.26 Lacs") and overlook that a bidder who submits 2 or 3 works of smaller individual value may still qualify. Always check all three options. A bidder qualifies if they satisfy <em>any one</em> of the three options.</p>
+  </div>
+</section>
+
+<!-- STEP C: WORK ORDER DETAILS -->
+<section id="step-wo" class="section">
+  <div class="section-eyebrow">Step C · TBA Columns: WO No. &amp; Date, Job Description, Owner/End User, WO Value</div>
+  <h2 class="section-title">Recording Work Order Details</h2>
+  <p class="section-lead">For each bidder, the evaluator must capture every work order they have submitted — whether qualifying or not. The approach differs depending on technical acceptance or rejection.</p>
+
+  <div class="rationale">
+    <div class="rationale-label">Why capture all WOs — even non-qualifying ones for rejected bidders</div>
+    <p>TBA General Note 2 states: <em>"In case of technical rejection, details of all submitted work orders to be given along with reason for rejection."</em> This ensures the rejection is defensible — showing that the evaluator reviewed everything submitted, not just the convenient ones.</p>
+  </div>
+
+  <div class="how-to">
+    <div class="how-to-title">How to fill Work Order Details</div>
+    <ol class="step-list">
+      <li>Write the WO number and issue date exactly as on the document — do not paraphrase.</li>
+      <li>Summarise the <strong>Job Description</strong> concisely — focus on the nature of work (shutdown, maintenance type, equipment type) and the client's plant/industry. This is what gets compared to the Similar Nature definition.</li>
+      <li>Record the <strong>Owner / End User</strong> — for sub-contract works, this is critical. The owner must have been informed about the sub-contracting (NIT Cl. 24.iii.B(b)(3)).</li>
+      <li>Enter the <strong>WO Value (incl. GST)</strong> from the face of the Work Order. Note: this is NOT the value used for PQC evaluation — see Step F for Executed Value. But it is recorded for reference and completeness.</li>
+    </ol>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 24.iii<br/>B(b)(1)</div>
+    <div class="clause-text">For fulfilling experience criteria, valid proof includes: <strong>Purchase/Work Order copy with Schedule of Rates/Scope of Works</strong> AND Completion Certificate by end client.</div>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-head">⚠️ Watch Out</div>
+    <ul>
+      <li>If a WO was issued more than 7 years ago but the completion date falls within the last 7 years, it IS eligible (NIT Cl. 24.iii.B(a): "irrespective of work order issue date").</li>
+      <li>WO value in foreign currency must be converted to INR at SBI bill selling rate on the date of WO issue (NIT Cl. 24.iii.B(n)).</li>
+      <li>A WO executed by a bidder for their <strong>own plant/projects</strong> is NOT counted as experience (NIT Cl. 24.iii.B(l)).</li>
+    </ul>
+  </div>
+</section>
+
+<!-- STEP D: SIMILAR NATURE -->
+<section id="step-similar" class="section">
+  <div class="section-eyebrow">Step D · TBA Column: "Meeting Similar Nature of Job"</div>
+  <h2 class="section-title">The Similar Nature Check — The Heart of the TBA</h2>
+  <p class="section-lead">This single column — Yes or No — is arguably the most important judgment call in the entire evaluation. It requires the evaluator to compare the bidder's submitted WO against the NIT's defined scope.</p>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 11.3</div>
+    <div class="clause-text">Similar nature is defined as: <strong>"Turnaround or Shutdown jobs including maintenance of heat exchangers, Columns/Vessels, Furnace, hot job works including CS, SS or AS piping in any petroleum refinery / Petrochemical Plants / Hydrocarbon Fertilizers / Hydrocarbon Industry."</strong></div>
+  </div>
+
+  <div class="how-to">
+    <div class="how-to-title">4-Point Checklist for "Similar Nature"</div>
+    <ol class="step-list">
+      <li><strong>Activity Type:</strong> Is the work a Turnaround (TAR) or Shutdown job? A routine maintenance contract without shutdown context does not qualify automatically.</li>
+      <li><strong>Equipment Type:</strong> Does the scope include at least one of: Heat Exchangers, Columns/Vessels, Furnace? Or hot job works with CS/SS/AS piping? The definition uses "including" — so even one of these in a broader scope can qualify.</li>
+      <li><strong>Industry:</strong> Is the job site a Petroleum Refinery, Petrochemical Plant, Hydrocarbon Fertilizer Plant, or Hydrocarbon Industry? A shutdown job at a power plant or cement plant does NOT qualify.</li>
+      <li><strong>Evidence in Documents:</strong> Can all of the above be verified from the WO description/scope and/or completion certificate? Do not infer from company name alone.</li>
+    </ol>
+  </div>
+
+  <div class="rationale">
+    <div class="rationale-label">Why is Similar Nature defined so specifically?</div>
+    <p>DHDS (Diesel Hydro Desulphurization) M&I (Maintenance &amp; Inspection) Shutdown involves high-pressure, high-temperature process equipment in a hydrogen-rich environment. The NIT similar nature definition ensures that the bidder has hands-on experience with the specific types of equipment and hazardous conditions at refineries — not just generic industrial maintenance. This is a safety and technical competence requirement.</p>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-head">⚠️ Common Errors in Similar Nature Assessment</div>
+    <ul>
+      <li>Marking a fertilizer plant WO as "Not Similar" — Hydrocarbon Fertilizer Plants are explicitly included in Cl. 11.3.</li>
+      <li>Accepting a WO from a general engineering company just because the job description says "maintenance" — must confirm it was at a qualifying plant type.</li>
+      <li>Rejecting a WO because the bidder was a sub-contractor — sub-contract work is acceptable per Cl. 11.2 and Cl. 24.iii.B, subject to sub-contract approval documentation.</li>
+    </ul>
+  </div>
+
+  <div class="tip">
+    <div class="tip-head">💡 Evaluator Tip</div>
+    <p>When in doubt about similar nature, refer back to the WO scope of work document (Schedule of Rates/Scope). The nature of the plant is usually mentioned in the client name or project title. If still unclear, raise a query (don't reject outright on first evaluation — see Step K).</p>
+  </div>
+</section>
+
+<!-- STEP E: COMPLETION CERTIFICATE -->
+<section id="step-cc" class="section">
+  <div class="section-eyebrow">Step E · TBA Column: "Completion Certificate Submitted?"</div>
+  <h2 class="section-title">Verifying the Completion Certificate</h2>
+  <p class="section-lead">The Completion Certificate (CC) is the single most important supporting document for experience. Without it, the work order — however impressive — cannot be used for qualifying.</p>
+
+  <div class="rationale">
+    <div class="rationale-label">Why is CC mandatory?</div>
+    <p>The NIT requires the <strong>executed value</strong> for PQC evaluation — not the WO value. The only document that certifies what was actually executed (and at what value) is the Completion Certificate from the end-client or EIC. It also confirms that the job was completed within the qualifying period. Without the CC, the WO is an intention — not evidence of completion.</p>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 24.iii<br/>B(b)(2)</div>
+    <div class="clause-text"><strong>Completion certificate by end client</strong> with <em>executed value</em>, date of completion of the job and reference work order number — is required as valid proof of experience.</div>
+  </div>
+
+  <div class="how-to">
+    <div class="how-to-title">What must a valid Completion Certificate contain?</div>
+    <ol class="step-list">
+      <li><strong>Executed Value</strong> — the actual amount paid/certified for the work, inclusive of GST. If not explicitly stated, treat as per Cl. 24.iii.B(j) — see Step F.</li>
+      <li><strong>Date of Completion</strong> — must fall within the qualifying period (last 7 years from original bid submission date).</li>
+      <li><strong>Reference Work Order Number</strong> — to link CC to the WO submitted.</li>
+      <li><strong>Issued by end-client / EIC</strong> — not by the bidder themselves, or an affiliated entity.</li>
+    </ol>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-head">⚠️ Sub-Contract Work — Additional Requirements</div>
+    <ul>
+      <li>If WO is from main contractor (not end-client), the bidder must ALSO submit: Certificate from the <strong>end-user/owner</strong> confirming they were informed about or permitted the sub-contracting (NIT Cl. 24.iii.B(b)(3)).</li>
+      <li>CC can also be from end-user / owner / main contractor / owner's consultant acting as EIC (Cl. 24.iii.B(b)(4)).</li>
+      <li>If CC value is ambiguous about GST inclusion, it is treated as <strong>inclusive of GST</strong> after seeking clarification (Cl. 24.iii.B(j)).</li>
+    </ul>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 24.iii<br/>B(k)</div>
+    <div class="clause-text">The CC shall separately indicate the <strong>Service Tax / GST amount</strong> included in the value, OR a separate certificate from the client mentioning the tax amount shall be submitted.</div>
+  </div>
+</section>
+
+<!-- STEP F: EXECUTED VALUE -->
+<section id="step-executed-value" class="section">
+  <div class="section-eyebrow">Step F · TBA Column: "Executed Value (₹ Lacs, incl. GST)"</div>
+  <h2 class="section-title">The Executed Value — The Evaluation Currency</h2>
+  <p class="section-lead">This is the column that decides whether a bidder meets the PQC or not. Understanding exactly what goes here — and what doesn't — is essential.</p>
+
+  <div class="rationale">
+    <div class="rationale-label">Why Executed Value — not WO Value?</div>
+    <p>A Work Order may be for ₹600 Lacs but only ₹310 Lacs worth of work may have actually been completed and certified. Conversely, a WO may be for ₹300 Lacs but scope additions could mean ₹520 Lacs was actually executed. The NIT is clear: <em>the executed (certified) value is what counts</em>. This reflects actual demonstrated capability, not contractual intent.</p>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 11.2<br/>Note 3 &amp;<br/>TBA Note 3</div>
+    <div class="clause-text"><strong>The Executed Value of completed work submitted by the bidder shall be considered during evaluation for experience criteria of PQC.</strong></div>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">TBA Note 4</div>
+    <div class="clause-text"><strong>Only the executed value matching the Similar Nature of job shall be entered.</strong> If a WO covers both similar and non-similar scope, only the similar-nature portion's executed value should be considered.</div>
+  </div>
+
+  <div class="how-to">
+    <div class="how-to-title">How to enter Executed Value correctly</div>
+    <ol class="step-list">
+      <li>Read the executed value from the Completion Certificate — not from the WO or invoice.</li>
+      <li>Confirm the value is inclusive of GST. If the CC says "ex-GST" or is silent, ask for clarification per Cl. 24.iii.B(j). Until clarified, treat the stated amount as inclusive of GST.</li>
+      <li>If the WO is composite (similar + non-similar scope), enter only the value attributable to the similar-nature portion. Ask the bidder for a breakdown if not clearly segregated.</li>
+      <li>Compare the entered executed value against the applicable PQC slab and record whether it qualifies.</li>
+    </ol>
+  </div>
+
+  <table class="data-table">
+    <thead><tr><th>PQC Option</th><th>No. of Works</th><th>Required Exec. Value Each (₹ Lacs, incl. GST)</th><th>How to Check</th></tr></thead>
+    <tbody>
+      <tr><td>Option A</td><td>1 work</td><td>≥ 547.26</td><td>Single qualifying WO executed value ≥ 547.26</td></tr>
+      <tr><td>Option B</td><td>2 works</td><td>≥ 437.81 each</td><td>Both qualifying WOs each ≥ 437.81</td></tr>
+      <tr><td>Option C</td><td>3 works</td><td>≥ 328.36 each</td><td>All three qualifying WOs each ≥ 328.36</td></tr>
+    </tbody>
+  </table>
+
+  <div class="pitfall">
+    <div class="pitfall-head">⚠️ Critical Pitfall</div>
+    <p>Do NOT add up values across WOs to meet a single slab. If a bidder claims 1-job option, ONE single WO's executed value must be ≥ ₹547.26 Lacs. You cannot combine two WOs of ₹300 Lacs each to reach ₹600 Lacs for the 1-job option. Each option is evaluated independently.</p>
+  </div>
+</section>
+
+<!-- STEP G: ANNUALISED VALUE -->
+<section id="step-annual" class="section">
+  <div class="section-eyebrow">Step G · TBA Column: "Annualised Value"</div>
+  <h2 class="section-title">Annualised Value — When and Why</h2>
+  <p class="section-lead">The annualised value column exists for ARC/AMC type tenders. Understanding when to use it (and when not to) is important for this specific tender.</p>
+
+  <div class="rationale">
+    <div class="rationale-label">What is Annualisation and why does it exist?</div>
+    <p>An Annual Rate Contract (ARC) runs for 1–3 years. If a bidder's past ARC experience ran for 3 years and generated ₹900 Lacs total, that's ₹300 Lacs per year. Comparing the total ₹900 Lacs against a benchmark set for a 1-year ARC would be unfair to bidders with shorter ARCs. Annualisation normalises all values to a per-year basis for fair comparison.</p>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 21</div>
+    <div class="clause-text">Whether the tendered job is ARC/AMC: <strong>One-Time</strong>. [If ARC/AMC job, work experience value submitted by the bidder shall be annualised.]</div>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">TBA Note 6</div>
+    <div class="clause-text"><strong>If nature of tendered job is an ARC/AMC as per NIT, Annualized Executed Value is to be considered for evaluation.</strong></div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-head">💡 For This Tender (9030C26A47)</div>
+    <p>Since this is a <strong>One-Time (Non-ARC)</strong> job, annualisation is NOT required for the tendered job. However, if a bidder submits an ARC-type past work order as their experience, the evaluator should <strong>annualise that past WO's executed value</strong> before comparing to the PQC slab. The non-ARC experience submitted by a bidder for jobs more than one year duration also needs to be annualised for ARC-type tenders — but not for this One-Time tender.</p>
+  </div>
+
+  <div class="how-to">
+    <div class="how-to-title">How to calculate Annualised Value (for ARC past WOs, if applicable)</div>
+    <ol class="step-list">
+      <li>Find the total executed value (from CC) and the actual duration of the contract in months.</li>
+      <li>Formula: Annualised Value = (Executed Value ÷ Actual Duration in months) × 12</li>
+      <li>Enter this annualised figure in the "Annualised Value" column.</li>
+      <li>For this One-Time tender: enter the executed value directly, or mark N/A in the annualised column.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- STEP H: SUB-CONTRACT -->
+<section id="step-subcontract" class="section">
+  <div class="section-eyebrow">Step H · TBA Column: "Sub-Contracting Approval / Intimation Submitted?"</div>
+  <h2 class="section-title">Sub-Contracting Documentation Check</h2>
+  <p class="section-lead">When a bidder submits experience from work done as a sub-contractor (not as the main contractor for the end-client), additional documentation is mandatory.</p>
+
+  <div class="rationale">
+    <div class="rationale-label">Why is sub-contract documentation a separate check?</div>
+    <p>IOCL needs assurance that the bidder's past sub-contract work was legitimate — i.e., the end-client was aware of and sanctioned the sub-contracting. Without this, a bidder could claim experience from work they participated in informally, without proper engagement. The sub-contract approval/intimation certificate bridges the gap between the main contractor's WO and the end-client's knowledge of the actual executing party.</p>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 24.iii<br/>B(b)(3)</div>
+    <div class="clause-text">In case of sub-contract works, the bidder must submit a <strong>certificate from the end user / Owner / Consultant</strong> stating that the main contractor has intimated them about the engagement of sub-contracting OR that the bidder was allowed/permitted as a sub-contractor.</div>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 23.i</div>
+    <div class="clause-text"><strong>Sub-Contracting: Not permitted in this job.</strong> Note: this is about sub-contracting within the CURRENT tender — not about past experience as a sub-contractor, which is still accepted for PQC.</div>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-head">⚠️ Don't Confuse These Two</div>
+    <ul>
+      <li><strong>Past sub-contract experience:</strong> Acceptable for PQC, but requires approval/intimation certificate (Cl. 24.iii.B(b)(3) &amp; (4)).</li>
+      <li><strong>Sub-contracting in current tender:</strong> Absolutely NOT permitted (Cl. 23.i). Any bid indicating a sub-contracting arrangement for the awarded work is liable for rejection.</li>
+    </ul>
+  </div>
+
+  <div class="how-to">
+    <div class="how-to-title">Filling this column</div>
+    <ol class="step-list">
+      <li>If the bidder's WO is directly from the end-client: mark "N/A" — no sub-contract approval needed.</li>
+      <li>If WO is from a main contractor (not end-client): mark "Yes" if approval/intimation certificate is submitted, "No" if missing. A "No" here means the sub-contract WO cannot be used for PQC — raise a query or reject.</li>
+      <li>For JV/Consortium work: also check the JV agreement and that the work order/CC is in the name of the JV or Leader with bidder's details mentioned (Cl. 24.iii.B(d)).</li>
+    </ol>
+  </div>
+</section>
+
+<!-- STEP I: DEVIATIONS -->
+<section id="step-deviations" class="section">
+  <div class="section-eyebrow">Step I · TBA Column: "Deviations"</div>
+  <h2 class="section-title">Checking for Deviations</h2>
+  <p class="section-lead">Deviations are conditions or modifications a bidder has put in their techno-commercial bid that differ from what the NIT/GCC/SCC specifies.</p>
+
+  <div class="rationale">
+    <div class="rationale-label">Why deviations must be checked in TBA</div>
+    <p>IOCL needs to know upfront if a bidder is willing to accept the full contractual terms. A deviation on a critical commercial or safety clause discovered after award creates disputes and potential losses. The TBA flags deviations so they can be resolved — or the bid rejected — before the price bid is opened.</p>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 23.e</div>
+    <div class="clause-text"><strong>No deviation to GCC/SCC is permitted in this tendered job.</strong></div>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 24.v<br/>B(c)</div>
+    <div class="clause-text">Bid is liable for rejection if the bidder <strong>stipulates his own conditions and refuses to withdraw them.</strong></div>
+  </div>
+
+  <div class="how-to">
+    <div class="how-to-title">How to handle deviations</div>
+    <ol class="step-list">
+      <li>Review the bidder's techno-commercial bid for any conditions, caveats, or modifications to GCC/SCC terms.</li>
+      <li>If deviation found: record it specifically in the Deviations column (e.g., "Bidder has sought deviation on defect liability period").</li>
+      <li>Since no deviation is permitted (Cl. 23.e), raise a query asking the bidder to unconditionally withdraw the deviation.</li>
+      <li>If the bidder refuses to withdraw in query reply: recommend rejection citing Cl. 24.v.B(c).</li>
+      <li>If no deviations: write <strong>"NIL"</strong> — never leave blank, as blank implies the column was not checked.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- STEP J: ADDITIONAL PQC -->
+<section id="step-addl-pqc" class="section">
+  <div class="section-eyebrow">Step J · TBA Column: "Whether meeting Addl. Tech. PQC"</div>
+  <h2 class="section-title">Additional Technical PQC Check</h2>
+  <p class="section-lead">Some tenders have additional technical requirements beyond the standard ATO and SWO criteria — for example, specific certifications, equipment ownership, or key personnel qualifications.</p>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 12</div>
+    <div class="clause-text">Additional Technical Requirement (PQC), if any: <strong>Not Applicable</strong></div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-head">💡 For This Tender</div>
+    <p>Since Cl. 12 says "Not Applicable," mark this column as <strong>"N/A"</strong> for all bidders. Do not leave blank — write N/A explicitly to demonstrate the column was reviewed, not skipped. In future tenders where Addl. PQC exists (e.g., specific tool/equipment ownership, key personnel CVs, ISO certifications), this column becomes a pass/fail gate.</p>
+  </div>
+
+  <div class="rationale">
+    <div class="rationale-label">Why this column exists even when N/A</div>
+    <p>The TBA format is a universal document used across all IOCL tenders. By always having this column, evaluators are forced to actively check the NIT for any additional requirements rather than assuming there are none. The N/A entry is an affirmative confirmation, not an omission.</p>
+  </div>
+</section>
+
+<!-- STEP K: REMARKS -->
+<section id="step-remarks" class="section">
+  <div class="section-eyebrow">Step K · TBA Column: "Remarks"</div>
+  <h2 class="section-title">Remarks — The Most Important Column to Write Well</h2>
+  <p class="section-lead">The Remarks column is where the evaluator's professional judgment is documented. A vague remark is almost as bad as no remark. Here's how to write remarks that stand up to scrutiny.</p>
+
+  <div class="rationale">
+    <div class="rationale-label">Why Remarks must be specific and clause-referenced</div>
+    <p>The TBA is a legal document. If a rejected bidder challenges the decision — through court, arbitration, or CVC inquiry — the Remarks column is the evaluator's primary defence. Generic remarks like "does not meet PQC" are insufficient. Specific remarks like "Executed value of ₹302.45 Lacs (from CC dated 15.03.2022) is below the required ₹328.36 Lacs for 3-work option as per NIT Cl. 11.2" are defensible.</p>
+  </div>
+
+  <div class="how-to">
+    <div class="how-to-title">How to write good Remarks</div>
+    <ol class="step-list">
+      <li><strong>For Accepted bidders:</strong> Note the qualifying WO(s) and the specific PQC option met (e.g., "Qualifies under 2-job option: WO#1 executed value ₹458.20L and WO#2 executed value ₹441.00L, both ≥ ₹437.81L as per Cl. 11.2 Option 2").</li>
+      <li><strong>For Queries:</strong> State specifically what is missing or unclear (e.g., "CC for WO#2 does not mention GST component. Bidder asked to submit revised CC or separate certificate per Cl. 24.iii.B(k)").</li>
+      <li><strong>For Rejected bidders:</strong> State the specific deficiency with values and clause reference (e.g., "Highest executed value of submitted similar WO is ₹510.00L, below ₹547.26L required for 1-job option, and only 1 similar WO submitted — Option B and C not applicable. Offer rejected per Cl. 24.v.A(a)").</li>
+    </ol>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 24.vii</div>
+    <div class="clause-text">Offers with <strong>incomplete/irrelevant documents or anomalies are liable for rejection without any communication</strong>. Hence bidders are advised to take utmost care while uploading prequalification documents.</div>
+  </div>
+
+  <div class="tip">
+    <div class="tip-head">💡 Query vs. Rejection</div>
+    <p>Not every deficiency warrants immediate rejection. On Initial TBA, raise a query for: missing documents that could be submitted, unclear values that could be clarified, or ambiguous scope descriptions. Reserve outright rejection for: clear non-fulfillment of PQC values, forged/misrepresented documents, or refusal to withdraw unacceptable conditions.</p>
+  </div>
+</section>
+
+<!-- STEP L: RECOMMENDATION -->
+<section id="step-recommendation" class="section">
+  <div class="section-eyebrow">Step L · TBA Column: "Final Technical Recommendation"</div>
+  <h2 class="section-title">The Final Recommendation</h2>
+  <p class="section-lead">The last column crystallises all preceding evaluation into a single decision: Accepted, Rejected, or Query. This drives everything that happens next.</p>
+
+  <div class="col-map">
+    <div class="col-header">Decision</div><div class="col-header">When to Use &amp; What Happens Next</div>
+    <div class="col-field">ACCEPTED</div><div class="col-explain">Bidder meets all PQC criteria: ATO, SWO (under one of the 3 options), similar nature confirmed, CC with executed value verified, no outstanding deviations, all mandatory documents submitted. Price bid of this bidder will be opened.</div>
+    <div class="col-field">REJECTED</div><div class="col-explain">Bidder fails to meet one or more mandatory PQC criteria and deficiency is not rectifiable by query/clarification. Price bid will NOT be opened. Must document reason in Remarks column with clause reference.</div>
+    <div class="col-field">QUERY</div><div class="col-explain">Bidder's documents are incomplete or ambiguous — but the deficiency could potentially be resolved by seeking clarification. Issue the query, re-evaluate on Final TBA after replies. Move to Accepted or Rejected on Final TBA.</div>
+  </div>
+
+  <div class="rationale">
+    <div class="rationale-label">Counting Technically Acceptable Bids</div>
+    <p>The total count of "Accepted" recommendations is recorded in the TBA Header as "Nos. of Technically Acceptable Bids." This is critical: if the count is below a threshold (typically 3 for competitive tendering), the tender may need to be retendered or exceptional approval sought from competent authority before proceeding to price bid opening.</p>
+  </div>
+
+  <div class="clause-cite">
+    <div class="clause-num">Cl. 22</div>
+    <div class="clause-text">Job Nature: <strong>Critical.</strong> No relaxation on PQC is allowed to Startup-India registered bidders and MSE bidders. The evaluator cannot use discretion to relax PQC for any bidder in a Critical job.</div>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-head">⚠️ Signature &amp; Approval</div>
+    <p>The completed TBA must be signed by the evaluator (<strong>Prepared By</strong>), reviewed by a senior officer (<strong>Checked By</strong>), and approved by <strong>DGM (Contracts)</strong> as per IWPM Clause 4.3.1 + R&R Cl. 20(viii). An unsigned TBA has no formal validity and cannot be used as basis for bid opening or rejection communication.</p>
+  </div>
+</section>
+
+<!-- NIT QUICK REFERENCE -->
+<section id="nit-quick-ref" class="section">
+  <div class="section-eyebrow">Reference Card</div>
+  <h2 class="section-title">NIT Quick Reference — All Key Values</h2>
+  <p class="section-lead">Keep this reference alongside your TBA while evaluating. All values are from Tender 9030C26A47.</p>
+
+  <table class="data-table">
+    <thead><tr><th>NIT Clause</th><th>Parameter</th><th>Value / Requirement</th></tr></thead>
+    <tbody>
+      <tr><td>Cl. 1</td><td>Tender No.</td><td>9030C26A47</td></tr>
+      <tr><td>Cl. 2b</td><td>Bid System</td><td>Two-Bid System (Techno-commercial + Price)</td></tr>
+      <tr><td>Cl. 4</td><td>Contract Validity</td><td>24 months from WO issue</td></tr>
+      <tr><td>Cl. 4</td><td>Pre-shutdown period</td><td>15 days</td></tr>
+      <tr><td>Cl. 4</td><td>Shutdown (total)</td><td>33 days (3 shut-down + 26 engineering + 4 start-up)</td></tr>
+      <tr><td>Cl. 4</td><td>PRC period (for delay)</td><td>26 Engineering Days only</td></tr>
+      <tr><td>Cl. 4</td><td>Post-shutdown</td><td>30 days</td></tr>
+      <tr><td>Cl. 10</td><td>EMD</td><td>₹ 2,74,000 (online; BG for ≥ ₹1 Lac)</td></tr>
+      <tr><td>Cl. 10</td><td>BG validity</td><td>7 months from last date of bid submission</td></tr>
+      <tr><td>Cl. 11.1</td><td>Annual Turnover (ATO)</td><td>Min. ₹ 656.71 Lacs in any 1 of last 3 FYs</td></tr>
+      <tr><td>Cl. 11.2</td><td>SWO — 1 job</td><td>≥ ₹ 547.26 Lacs (incl. GST)</td></tr>
+      <tr><td>Cl. 11.2</td><td>SWO — 2 jobs</td><td>≥ ₹ 437.81 Lacs each (incl. GST)</td></tr>
+      <tr><td>Cl. 11.2</td><td>SWO — 3 jobs</td><td>≥ ₹ 328.36 Lacs each (incl. GST)</td></tr>
+      <tr><td>Cl. 11.2</td><td>Qualifying period</td><td>Last 7 years (from original bid submission date)</td></tr>
+      <tr><td>Cl. 12</td><td>Additional Technical PQC</td><td>Not Applicable</td></tr>
+      <tr><td>Cl. 21</td><td>ARC/Non-ARC</td><td>One-Time (Non-ARC) → No annualisation for current job</td></tr>
+      <tr><td>Cl. 22</td><td>Job Nature</td><td>CRITICAL — No PQC relaxation for startups/MSEs</td></tr>
+      <tr><td>Cl. 23.a</td><td>Contract Type</td><td>Pure Service Contract</td></tr>
+      <tr><td>Cl. 23.d</td><td>Labour component</td><td>25% for line items 10 &amp; 20</td></tr>
+      <tr><td>Cl. 23.d</td><td>GST Rate / SAC</td><td>18% / SAC 9987</td></tr>
+      <tr><td>Cl. 23.e</td><td>Deviation to GCC/SCC</td><td>NOT permitted</td></tr>
+      <tr><td>Cl. 23.g</td><td>Security Deposit (SD)</td><td>5% of contract value (excl. GST)</td></tr>
+      <tr><td>Cl. 23.g</td><td>Initial SD (ISD)</td><td>2.5% of contract value (excl. GST)</td></tr>
+      <tr><td>Cl. 23.i</td><td>Sub-contracting</td><td>NOT permitted</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz-section" style="background:var(--ink)">
+  <div class="section" style="background:var(--ink);border-bottom:none">
+    <div class="section-eyebrow">Knowledge Check</div>
+    <h2 class="section-title" style="color:var(--paper)">Test Your Understanding</h2>
+    <p class="section-lead">10 questions based on the NIT clauses and TBA evaluation process.</p>
+
+    <div class="quiz-progress"><div class="quiz-progress-fill" id="qprog" style="width:0%"></div></div>
+    <div id="quiz-area"></div>
+  </div>
+</section>
+
+</main>
+
+<script>
+// ─── SCROLL PROGRESS ───
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;
+  document.getElementById('progress-bar').style.width=pct+'%';
+});
+
+// ─── ACTIVE NAV ───
+const sections=document.querySelectorAll('section[id]');
+const navItems=document.querySelectorAll('.nav-item');
+window.addEventListener('scroll',()=>{
+  let current='';
+  sections.forEach(s=>{
+    if(window.scrollY>=s.offsetTop-120) current=s.id;
+  });
+  navItems.forEach(n=>{
+    n.classList.remove('active');
+    if(n.getAttribute('href')==='#'+current) n.classList.add('active');
+  });
+});
+
+// ─── QUIZ ENGINE ───
+const QUESTIONS=[
+  {
+    q:"You receive a tender with an extended bid submission date of 15 March 2026, but the original bid submission date was 10 January 2026. Which date do you use to calculate the 7-year qualifying period for bidder experience?",
+    opts:["15 March 2026 (extended date)","10 January 2026 (original date)","The midpoint between both dates","The date of WO issue for each bidder"],
+    ans:1,
+    clause:"NIT Cl. 11.2, Note 2",
+    exp:"NIT Cl. 11.2 Note 2 explicitly states: 'In case of extended bid submission date, original bid submission date shall be considered.' This prevents bidders from gaining an unfair advantage through extensions to include otherwise-expired work orders."
+  },
+  {
+    q:"Bidder A submits a WO for ₹550 Lacs executed at a pharmaceutical plant's utility maintenance shutdown. Does this qualify as 'Similar Nature' per NIT Cl. 11.3?",
+    opts:["Yes — it is a shutdown job","Yes — the value exceeds the single-job threshold","No — pharmaceutical plant is not in the defined similar nature industry list","No — utility maintenance is not included"],
+    ans:2,
+    clause:"NIT Cl. 11.3",
+    exp:"NIT Cl. 11.3 defines similar nature as work in 'petroleum refinery / Petrochemical Plants / Hydrocarbon Fertilizers / Hydrocarbon Industry.' A pharmaceutical plant does not fall in this list, regardless of the value or type of work."
+  },
+  {
+    q:"The Completion Certificate submitted by a bidder for a qualifying WO shows 'Total Work Value: ₹485 Lacs' but does not separately mention GST. As per NIT, what executed value do you enter in the TBA?",
+    opts:["₹485 Lacs — treating it as inclusive of GST after seeking clarification","₹411 Lacs — deducting 18% GST from the stated value","The WO value instead of CC value","The TBA cannot be filled — bidder must be rejected"],
+    ans:0,
+    clause:"NIT Cl. 24.iii.B(j)",
+    exp:"Cl. 24.iii.B(j) states: 'In case proof/certificate does not have clarity regarding inclusion/exclusion of tax, the amount appearing shall be considered inclusive of tax (with or without seeking clarification) and shall be evaluated accordingly.' Enter ₹485 Lacs as inclusive of GST — raise a query for clarification but proceed with evaluation."
+  },
+  {
+    q:"Bidder B has done similar work as a sub-contractor. They have submitted the main contractor's WO and completion certificate, but have NOT submitted a certificate from the end-user confirming sub-contract approval. What should the evaluator do?",
+    opts:["Accept — main contractor WO and CC are sufficient","Reject immediately — sub-contract experience is not acceptable","Raise a query asking bidder to submit end-user/owner certificate confirming sub-contract approval per Cl. 24.iii.B(b)(3)","Ignore the sub-contract status and evaluate only on value"],
+    ans:2,
+    clause:"NIT Cl. 24.iii.B(b)(3)",
+    exp:"Sub-contract work IS acceptable for PQC (Cl. 11.2), but requires an additional certificate from the end-user/owner confirming the main contractor intimated them about sub-contracting OR that the bidder was permitted as sub-contractor. On Initial TBA, raise a query — don't reject outright if the deficiency is curable."
+  },
+  {
+    q:"This tender is classified as a 'Critical' job in NIT Cl. 22. A bidder who is an MSE (Micro and Small Enterprise) with a valid UDYAM certificate does not fully meet the PQC. What relaxation can be given?",
+    opts:["20% relaxation on SWO value as per MSE policy","ATO requirement can be waived for MSE bidders","No relaxation — Critical job classification means no PQC relaxation for MSE or Startups","Qualifying period extended to 10 years for MSE bidders"],
+    ans:2,
+    clause:"NIT Cl. 22",
+    exp:"NIT Cl. 22 explicitly states: 'Since the nature of job is Critical, therefore, No Relaxation on PQC ground is allowed to Startup-India registered bidders and MSE bidders.' The evaluator has no discretion here."
+  },
+  {
+    q:"The TBA General Note 4 states 'Only the executed value matching the Similar Nature of job shall be entered.' A bidder's WO is for ₹600 Lacs covering both shutdown maintenance (similar) and routine annual maintenance (not similar). Only ₹350 Lacs relates to shutdown maintenance. What executed value do you enter?",
+    opts:["₹600 Lacs — total WO value","₹350 Lacs — only the similar-nature portion","₹600 Lacs — total because the WO was at a refinery","Cannot be evaluated — mixed-scope WOs are not acceptable"],
+    ans:1,
+    clause:"TBA General Note 4",
+    exp:"TBA General Note 4 is clear: only the executed value matching the similar nature of job shall be entered. Enter ₹350 Lacs. If the bidder has not provided a breakdown, raise a query asking for segregation of the similar-nature scope value."
+  },
+  {
+    q:"Is sub-contracting permitted by the successful contractor in this tender (9030C26A47)?",
+    opts:["Yes, up to 25% of contract value","Yes, with prior approval of EIC","No, sub-contracting is not permitted (NIT Cl. 23.i)","Yes, for specialised items only"],
+    ans:2,
+    clause:"NIT Cl. 23.i",
+    exp:"NIT Cl. 23.i explicitly states 'Sub-Contracting: Not permitted in this job.' Any indication by a bidder that they intend to sub-contract the work makes their bid liable for rejection under Cl. 24.v.B(c) (stipulating own unacceptable conditions)."
+  },
+  {
+    q:"What is the contractual completion period used for calculating Price Reduction Clause (PRC) for delay?",
+    opts:["33 days (total shutdown days)","15 days (pre-shutdown)","26 Engineering Days (only)","78 days (total contract period)"],
+    ans:2,
+    clause:"NIT Cl. 4",
+    exp:"NIT Cl. 4 states: 'For the purpose of applying price reduction clause for delay in completion, the contractual completion period shall be only the engineering days (26 days), reckoned from the date of handover of site by EIC to the contractor.' The 3 shutting-down days and 4 start-up days are excluded."
+  },
+  {
+    q:"In the TBA format, the 'Deviations' column is left blank for Bidder C by the evaluator. What does this imply, and is it correct practice?",
+    opts:["Blank means NIL deviations — this is correct","Blank is not correct — write 'NIL' explicitly to confirm the column was actively checked","Blank means the deviations were not checked — bid must be reconsidered","Blank is only acceptable if the bidder is recommended for acceptance"],
+    ans:1,
+    clause:"NIT Cl. 23.e · TBA Format",
+    exp:"A blank column is ambiguous — it could mean 'not checked' or 'no deviations found.' Best practice (and often an audit requirement) is to write 'NIL' explicitly, confirming the evaluator reviewed the techno-commercial bid and found no deviations. NIT Cl. 23.e allows no deviations, so 'NIL' is the expected entry for a qualifying bid."
+  },
+  {
+    q:"This tender's TBA requires approval by which authority, and under which governance clause?",
+    opts:["Manager (Contracts) under GCC Cl. 5","DGM (Contracts) as per IWPM Clause 4.3.1 + R&R Cl. 20(viii)","Any Senior Engineer in the Contracts department","The Tender Inviting Authority alone"],
+    ans:1,
+    clause:"TBA Format Footer · IWPM Cl. 4.3.1",
+    exp:"The TBA format explicitly states at the bottom: 'Approved By: DGM(C) — As per IWPM Clause 4.3.1 + R&R Cl. 20(viii).' This is the designated approval authority. An unsigned or insufficiently authorised TBA cannot be used as the formal basis for bid opening decisions."
+  }
+];
+
+let qState={current:0,score:0,answered:false};
+
+function renderQuiz(){
+  const area=document.getElementById('quiz-area');
+  const prog=document.getElementById('qprog');
+  if(qState.current>=QUESTIONS.length){
+    const pct=Math.round((qState.score/QUESTIONS.length)*100);
+    let grade=pct>=90?'🏆 Outstanding':'';
+    grade=grade||(pct>=70?'✅ Good Understanding':'');
+    grade=grade||(pct>=50?'📖 Keep Studying':'❌ Revisit Training Material');
+    prog.style.width='100%';
+    area.innerHTML=`<div class="final-score">
+      <div class="big">${qState.score}/${QUESTIONS.length}</div>
+      <div class="msg">${pct}% · ${grade}</div>
+      <div style="margin-top:32px;display:flex;gap:12px;justify-content:center">
+        <button class="btn btn-gold" onclick="qState={current:0,score:0,answered:false};renderQuiz()">Retake Quiz</button>
+        <button class="btn btn-outline" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to Top</button>
+      </div>
+    </div>`;
+    return;
+  }
+  const q=QUESTIONS[qState.current];
+  prog.style.width=((qState.current/QUESTIONS.length)*100)+'%';
+  area.innerHTML=`<div class="q-card">
+    <div class="q-number">Question ${qState.current+1} of ${QUESTIONS.length} · Clause: ${q.clause}</div>
+    <div class="q-text">${q.q}</div>
+    <div class="q-opts">
+      ${q.opts.map((o,i)=>`<button class="q-opt" id="qo${i}" onclick="answerQ(${i})">${String.fromCharCode(65+i)}. ${o}</button>`).join('')}
+    </div>
+    <div class="q-explanation" id="qexp"></div>
+    <div class="quiz-nav">
+      <div class="quiz-score">Score: ${qState.score} / ${qState.current}</div>
+      <div id="qnext" style="display:none;margin-left:auto">
+        <button class="btn btn-gold" onclick="qState.current++;qState.answered=false;renderQuiz()">${qState.current<QUESTIONS.length-1?'Next Question →':'See Results'}</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function answerQ(chosen){
+  if(qState.answered)return;
+  qState.answered=true;
+  const q=QUESTIONS[qState.current];
+  const correct=chosen===q.ans;
+  if(correct)qState.score++;
+  document.querySelectorAll('.q-opt').forEach((b,i)=>{
+    b.disabled=true;
+    if(i===q.ans)b.classList.add('correct');
+    else if(i===chosen&&!correct)b.classList.add('wrong');
+  });
+  const exp=document.getElementById('qexp');
+  exp.className=`q-explanation show`;
+  exp.innerHTML=`<strong>${correct?'✅ Correct!':'❌ Incorrect.'}</strong> ${q.exp}`;
+  document.getElementById('qnext').style.display='block';
+}
+
+renderQuiz();
+</script>
+</body>
+</html>
