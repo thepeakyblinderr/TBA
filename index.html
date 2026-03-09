@@ -86,7 +86,7 @@ aside{
 main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
 
 /* ─── HERO ─── */
-.hero{background:var(--ink);color:var(--paper);padding:80px 64px;position:relative;overflow:hidden}
+.hero{background:var(--ink);color:var(--paper);padding:72px 72px;position:relative;overflow:hidden}
 .hero::after{
   content:'TBA';position:absolute;right:-20px;top:-40px;
   font-family:var(--serif);font-size:240px;font-weight:900;
@@ -111,7 +111,7 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
 .hero-stat .l{font-size:11px;color:rgba(255,255,255,.5);font-family:var(--mono);margin-top:4px}
 
 /* ─── SECTIONS ─── */
-.section{padding:64px 64px;border-bottom:1px solid var(--border);max-width:900px;background:#f7f4ef}
+.section{padding:56px 72px;border-bottom:1px solid var(--border);background:#f7f4ef}
 .section:last-child{border-bottom:none}
 .section-eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#c9893a;margin-bottom:10px;font-weight:600}
 .section-title{font-family:var(--serif);font-size:32px;font-weight:700;line-height:1.2;margin-bottom:8px;color:#1a1a2e}
@@ -292,7 +292,7 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
 .final-score .msg{font-size:18px;color:rgba(240,236,228,.75);margin-top:12px;line-height:1.6}
 
 /* ─── RESPONSIVE ─── */
-@media(max-width:900px){
+@media(){
   aside{transform:translateX(-100%);transition:transform .3s}
   aside.open{transform:translateX(0)}
   main{margin-left:0}
@@ -1272,7 +1272,7 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
     </ol>
   </div>
 
-  <div style="background:#fafaf7;border:1px solid #e0dbd0;border-radius:8px;padding:18px 22px;margin:18px 0 12px;max-width:700px">
+  <div style="background:#fafaf7;border:1px solid #e0dbd0;border-radius:8px;padding:18px 22px;margin:18px 0 12px;max-width:860px">
     <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:10px">Bidder 1-A · PQR Services — Evaluation Flowchart</div>
     
         <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 13px;background:#e8f7ef;border-left:4px solid #1a7a4a;border-radius:4px;margin-bottom:3px">
@@ -1345,7 +1345,7 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
     </ol>
   </div>
 
-  <div style="background:#fafaf7;border:1px solid #e0dbd0;border-radius:8px;padding:18px 22px;margin:18px 0 12px;max-width:700px">
+  <div style="background:#fafaf7;border:1px solid #e0dbd0;border-radius:8px;padding:18px 22px;margin:18px 0 12px;max-width:860px">
     <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:10px">Bidder 1-B · STU Mechanical Works — Evaluation Flowchart</div>
     
         <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 13px;background:#e8f7ef;border-left:4px solid #1a7a4a;border-radius:4px;margin-bottom:3px">
@@ -1411,7 +1411,7 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
     </ol>
   </div>
 
-  <div style="background:#fafaf7;border:1px solid #e0dbd0;border-radius:8px;padding:18px 22px;margin:18px 0 12px;max-width:700px">
+  <div style="background:#fafaf7;border:1px solid #e0dbd0;border-radius:8px;padding:18px 22px;margin:18px 0 12px;max-width:860px">
     <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:10px">Bidder 1-C · VWX Engineering — Evaluation Flowchart</div>
     
         <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 13px;background:#e8f7ef;border-left:4px solid #1a7a4a;border-radius:4px;margin-bottom:3px">
@@ -1674,20 +1674,19 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
 </div>
 
 
-  <!-- BIDDER 3A -->
-  <div style="margin:48px 0 14px;padding:18px 22px;background:var(--gold);border-radius:6px">
-    <div style="font-family:var(--mono);font-size:11px;color:var(--ink);font-weight:700;letter-spacing:2px;text-transform:uppercase">Bidder 3-A · Accepted — Straightforward</div>
-    <div style="font-size:18px;font-weight:700;color:var(--ink);margin-top:4px">Mehta Infra Pvt. Ltd.</div>
-  </div>
+  
 
-
-
-  <div class="how-to">
-    <div class="how-to-title">What the Bidder Submitted</div>
-    <ol class="step-list">
-      <li><strong>WO-1:</strong> Repair and maintenance of roads, drains, and open paved areas at HPCL Rajkot Terminal (petroleum industry facility). WO value: ₹105 Lacs. CC executed value: ₹112 Lacs (scope additions led to higher execution). GST separately indicated. Completion: March 2024. Issued by HPCL EIC. ✅</li>
-      <li><strong>Deviations:</strong> Nil.</li>
-    </ol>
+  <div class="tip">
+    <div class="tip-head">💡 Key Concept — Reading "Repair and Maintenance of Civil Works"</div>
+    <p>The Cl. 11.3 definition has two limbs separated by a slash: <strong>"Repair and maintenance of civil works / Civil construction works."</strong> The slash means <em>either</em> limb qualifies independently.</p>
+    <p style="margin-top:12px">Within the first limb, <strong>"repair and maintenance"</strong> is a compound phrase describing a single recognised category of civil work — it does not mean a WO must contain both repair activities and maintenance activities simultaneously. In practice:</p>
+    <ul style="margin:10px 0 0 18px;line-height:1.8">
+      <li><strong>Repair works only</strong> (e.g., WO for repair of roads and drains) → <strong>Qualifies</strong> — repair is within the "repair and maintenance" category.</li>
+      <li><strong>Maintenance works only</strong> (e.g., WO for annual maintenance of civil infrastructure) → <strong>Qualifies</strong> — maintenance is within the "repair and maintenance" category.</li>
+      <li><strong>Both repair and maintenance together</strong> → Also qualifies.</li>
+    </ul>
+    <p style="margin-top:12px"><strong>Conceptual distinction:</strong> <em>Repair</em> is corrective — restoring something that has deteriorated or failed (e.g., patching a broken road, fixing a cracked drain). <em>Maintenance</em> is preventive — upkeep to prevent deterioration (e.g., repainting, clearing drainage, periodic inspection and minor works). Both fall under the same category of civil work in any industrial facility, and IOCL's definition groups them together deliberately: contractors who do one routinely do the other. A WO describing either activity at a qualifying industry is sufficient — do not reject a WO simply because it says "repair" without using the word "maintenance," or vice versa.</p>
+    <p style="margin-top:12px"><strong>What to watch for:</strong> The WO scope must clearly indicate <em>civil works</em> — e.g., roads, pavements, drains, structures, buildings, RCC works. A WO described only as "housekeeping," "cleaning," or "painting" without reference to civil works does not qualify even if executed at a petroleum refinery.</p>
   </div>
 
   <div style="background:#fafaf7;border:1px solid #e0dbd0;border-radius:8px;padding:18px 20px;margin:20px 0">
@@ -1730,7 +1729,32 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
       <div style="background:#fdf0ee;border-left:3px solid #c0392b;padding:9px 12px;border-radius:4px;font-size:12px;color:#555;line-height:1.5"><strong style="color:#c0392b;display:block;margin-bottom:3px">Fails — Wrong work type</strong>Electrical or mechanical maintenance, housekeeping, painting, or security services at a petroleum refinery.</div>
     </div>
   </div>
-  <div style="background:#fafaf7;border:1px solid #e0dbd0;border-radius:8px;padding:18px 22px;margin:18px 0 12px;max-width:700px">
+  <div class="how-to">
+    <div class="how-to-title">What the Bidder Submitted</div>
+    <ol class="step-list">
+      <li><strong>Technical Bid:</strong> Bidder's method statement states they will engage "XYZ Specialist Agency" for the surfacing works as a specialised sub-contractor.</li>
+      <li><strong>WO-1:</strong> Civil construction and maintenance at BPCL Uran (Petrochemical Plant). Sub-contract WO from main contractor. WO: ₹120 Lacs. CC: ₹115 Lacs executed. End-user certificate from BPCL: submitted. Completion: May 2023.</li>
+    </ol>
+  </div>
+
+  <!-- BIDDER 3A -->
+  <div style="margin:48px 0 14px;padding:18px 22px;background:var(--gold);border-radius:6px">
+    <div style="font-family:var(--mono);font-size:11px;color:var(--ink);font-weight:700;letter-spacing:2px;text-transform:uppercase">Bidder 3-A · Accepted — Straightforward</div>
+    <div style="font-size:18px;font-weight:700;color:var(--ink);margin-top:4px">Mehta Infra Pvt. Ltd.</div>
+  </div>
+
+
+
+  <div class="how-to">
+    <div class="how-to-title">What the Bidder Submitted</div>
+    <ol class="step-list">
+      <li><strong>WO-1:</strong> Repair and maintenance of roads, drains, and open paved areas at HPCL Rajkot Terminal (petroleum industry facility). WO value: ₹105 Lacs. CC executed value: ₹112 Lacs (scope additions led to higher execution). GST separately indicated. Completion: March 2024. Issued by HPCL EIC. ✅</li>
+      <li><strong>Deviations:</strong> Nil.</li>
+    </ol>
+  </div>
+
+
+  <div style="background:#fafaf7;border:1px solid #e0dbd0;border-radius:8px;padding:18px 22px;margin:18px 0 12px;max-width:860px">
     <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:10px">Bidder 2-A · Mehta Infra — Evaluation Flowchart</div>
     
         <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 13px;background:#e8f7ef;border-left:4px solid #1a7a4a;border-radius:4px;margin-bottom:3px">
@@ -1793,12 +1817,13 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
   <div class="how-to">
     <div class="how-to-title">What the Bidder Submitted</div>
     <ol class="step-list">
-      <li><strong>Technical Bid:</strong> Bidder's method statement states they will engage "XYZ Specialist Agency" for the surfacing works as a specialised sub-contractor.</li>
-      <li><strong>WO-1:</strong> Civil construction and maintenance at BPCL Uran (Petrochemical Plant). Sub-contract WO from main contractor. WO: ₹120 Lacs. CC: ₹115 Lacs executed. End-user certificate from BPCL: submitted. Completion: May 2023.</li>
+      <li><strong>WO-1:</strong> Civil maintenance of open areas and pavements at ONGC Surat Gas Processing Plant. WO: ₹90 Lacs. CC executed value: not stated — CC reads "work completed satisfactorily to full scope." No amount mentioned. No separate GST certificate submitted.</li>
+      <li><strong>WO-2:</strong> Civil repair work at National Fertilizers Limited plant. WO: ₹75 Lacs. CC executed: ₹72 Lacs (excl. GST — stated explicitly).</li>
     </ol>
   </div>
 
-  <div style="background:#fafaf7;border:1px solid #e0dbd0;border-radius:8px;padding:18px 22px;margin:18px 0 12px;max-width:700px">
+
+  <div style="background:#fafaf7;border:1px solid #e0dbd0;border-radius:8px;padding:18px 22px;margin:18px 0 12px;max-width:860px">
     <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:10px">Bidder 2-B · Sharma Civil Works — Evaluation Flowchart</div>
     
         <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 13px;background:#e8f7ef;border-left:4px solid #1a7a4a;border-radius:4px;margin-bottom:3px">
@@ -1860,12 +1885,13 @@ main{margin-left:280px;min-height:100vh;position:relative;z-index:1}
   <div class="how-to">
     <div class="how-to-title">What the Bidder Submitted</div>
     <ol class="step-list">
-      <li><strong>WO-1:</strong> Civil maintenance of open areas and pavements at ONGC Surat Gas Processing Plant. WO: ₹90 Lacs. CC executed value: not stated — CC reads "work completed satisfactorily to full scope." No amount mentioned. No separate GST certificate submitted.</li>
-      <li><strong>WO-2:</strong> Civil repair work at National Fertilizers Limited plant. WO: ₹75 Lacs. CC executed: ₹72 Lacs (excl. GST — stated explicitly).</li>
+      <li><strong>WO-1:</strong> Civil repair work at ONGC Surat Gas Processing Plant (Petroleum Industry). WO value: ₹90 Lacs. CC: reads "work completed satisfactorily to full scope." No executed value stated. No separate GST certificate submitted.</li>
+      <li><strong>WO-2:</strong> Civil repair work at National Fertilizers Limited plant. WO value: ₹75 Lacs. CC executed value: ₹72 Lacs (excl. GST — stated explicitly).</li>
+      <li><strong>Deviations:</strong> Nil.</li>
     </ol>
   </div>
 
-  <div style="background:#fafaf7;border:1px solid #e0dbd0;border-radius:8px;padding:18px 22px;margin:18px 0 12px;max-width:700px">
+  <div style="background:#fafaf7;border:1px solid #e0dbd0;border-radius:8px;padding:18px 22px;margin:18px 0 12px;max-width:860px">
     <div style="font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:10px">Bidder 2-C · Patel Constructions — Evaluation Flowchart</div>
     
         <div style="display:flex;align-items:flex-start;gap:10px;padding:9px 13px;background:#e8f7ef;border-left:4px solid #1a7a4a;border-radius:4px;margin-bottom:3px">
@@ -2238,23 +2264,3 @@ renderQuiz();
 </script>
 </body>
 </html>
-  <div class="how-to">
-    <div class="how-to-title">What the Bidder Submitted</div>
-    <ol class="step-list">
-      <li><strong>WO-1:</strong> Repair and maintenance of roads, drains, and open paved areas at HPCL Rajkot Terminal (petroleum industry facility). WO value: ₹105 Lacs. CC executed value: ₹112 Lacs (scope additions led to higher execution). GST separately indicated. Completion: March 2024. Issued by HPCL EIC. ✅</li>
-      <li><strong>EMD:</strong> Submitted — ₹55,000 online. ✅</li>
-    </ol>
-  </div>
-
-  <div class="tip">
-    <div class="tip-head">💡 Key Concept — Reading "Repair and Maintenance of Civil Works"</div>
-    <p>The Cl. 11.3 definition has two limbs separated by a slash: <strong>"Repair and maintenance of civil works / Civil construction works."</strong> The slash means <em>either</em> limb qualifies independently.</p>
-    <p style="margin-top:12px">Within the first limb, <strong>"repair and maintenance"</strong> is a compound phrase describing a single recognised category of civil work — it does not mean a WO must contain both repair activities and maintenance activities simultaneously. In practice:</p>
-    <ul style="margin:10px 0 0 18px;line-height:1.8">
-      <li><strong>Repair works only</strong> (e.g., WO for repair of roads and drains) → <strong>Qualifies</strong> — repair is within the "repair and maintenance" category.</li>
-      <li><strong>Maintenance works only</strong> (e.g., WO for annual maintenance of civil infrastructure) → <strong>Qualifies</strong> — maintenance is within the "repair and maintenance" category.</li>
-      <li><strong>Both repair and maintenance together</strong> → Also qualifies.</li>
-    </ul>
-    <p style="margin-top:12px"><strong>Conceptual distinction:</strong> <em>Repair</em> is corrective — restoring something that has deteriorated or failed (e.g., patching a broken road, fixing a cracked drain). <em>Maintenance</em> is preventive — upkeep to prevent deterioration (e.g., repainting, clearing drainage, periodic inspection and minor works). Both fall under the same category of civil work in any industrial facility, and IOCL's definition groups them together deliberately: contractors who do one routinely do the other. A WO describing either activity at a qualifying industry is sufficient — do not reject a WO simply because it says "repair" without using the word "maintenance," or vice versa.</p>
-    <p style="margin-top:12px"><strong>What to watch for:</strong> The WO scope must clearly indicate <em>civil works</em> — e.g., roads, pavements, drains, structures, buildings, RCC works. A WO described only as "housekeeping," "cleaning," or "painting" without reference to civil works does not qualify even if executed at a petroleum refinery.</p>
-  </div>
